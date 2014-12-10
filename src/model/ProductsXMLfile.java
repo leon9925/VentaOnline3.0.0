@@ -2,7 +2,9 @@ package model;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -18,13 +20,19 @@ import org.jdom2.output.XMLOutputter;
  */
 public class ProductsXMLfile {
     
-    public static void readAllProductsFromXML(ProductList productList) 
-    {
+    /**
+     *
+     * @param NameProductConsult
+     * @return
+     */
+    public static Product readAllProductsFromXML(String NameProductConsult) 
+    {//leer todos los productos de XML
         Product         product = null;
         Document        doc;
         Element         root,   child;
         List<Element>   rootChildrens;
         String          NameProduct, provider, quantityMax, quantityMin, price,Image,Description,Category;
+        boolean         found = false;
         int             pos = 0;
         
 
@@ -38,62 +46,71 @@ public class ProductsXMLfile {
 
             rootChildrens = root.getChildren();
 
-            while (pos < rootChildrens.size()) 
+            while (!found && pos < rootChildrens.size())
             {
-                child = rootChildrens.get(pos);
-
-                NameProduct  = child.getAttributeValue(Util.PRODUCT_NAMEPRODUCT_TAG);
-                provider     = child.getAttributeValue(Util.PRODUCT_PROVIDER_TAG);
-                quantityMax  = child.getAttributeValue(Util.PRODUCT_QUANTITYMAX_TAG);
-                quantityMin  = child.getAttributeValue(Util.PRODUCT_QUANTITYMIN_TAG);
-                price        = child.getAttributeValue(Util.PRODUCT_PRICE_TAG);
-                Image        = child.getAttributeValue(Util.PRODUCT_IMAGE_TAG);
-                Description = child.getAttributeValue(Util.PRODUCT_DESCRIPTION_TAG);
-                Category     = child.getAttributeValue(Util.PRODUCT_CATEGORY_TAG);
+                child = rootChildrens.get(pos);    
                 
-                if (NameProduct != null && provider != null && quantityMax != null && quantityMin != null && price != null && Image != null && Description != null && Category != null)
+                // Se obtine el valor dentro de las etiquetas NameProduct, userType y password
+                NameProduct        = child.getAttributeValue(Util.PRODUCT_NAMEPRODUCT_TAG);
+                
+                if(NameProduct != null && NameProduct.equals(NameProductConsult))
                 {
-                    // Se crea un cliente
-                    product = new Product(NameProduct, provider, quantityMax, quantityMin, price,Image,Description,Category);
+                    NameProduct  = child.getAttributeValue(Util.PRODUCT_NAMEPRODUCT_TAG);
+                    provider     = child.getAttributeValue(Util.PRODUCT_PROVIDER_TAG);
+                    quantityMax  = child.getAttributeValue(Util.PRODUCT_QUANTITYMAX_TAG);
+                    quantityMin  = child.getAttributeValue(Util.PRODUCT_QUANTITYMIN_TAG);
+                    price        = child.getAttributeValue(Util.PRODUCT_PRICE_TAG);
+                    Image        = child.getAttributeValue(Util.PRODUCT_IMAGE_TAG);
+                    Description  = child.getAttributeValue(Util.PRODUCT_DESCRIPTION_TAG);
+                    Category     = child.getAttributeValue(Util.PRODUCT_CATEGORY_TAG);
+                
+                        if (NameProduct != null && provider != null && quantityMax != null && quantityMin != null && price != null && Image != null && Description != null && Category != null)
+                        {
+                            product = new Product(NameProduct,provider,quantityMax,quantityMin,price,Image,Description,Category);
+                            found = true;
+                        }
+                        else
+                        {
+                            // Errores posibles en caso de que alguna etiqueta dentro del archivo XML este vacia
+                            if (NameProduct == null) {
+                                System.out.println(Util.PRODUCT_NAMEPRODUCT_TAG);
+                            }
 
-                    // Se añade el cliente a la lista
-                    productList.addProduct(product);
-                    
-                } else 
-                {
-                    // Errores posibles en caso de que alguna etiqueta dentro del archivo XML este vacia
-                    if (NameProduct == null) {
-                        System.out.println(Util.PRODUCT_NAMEPRODUCT_TAG);
-                    }
+                            if (provider == null) {
+                                System.out.println(Util.PRODUCT_PROVIDER_TAG);
+                            }
 
-                    if (provider == null) {
-                        System.out.println(Util.PRODUCT_PROVIDER_TAG);
-                    }
+                            if (quantityMax == null) {
+                                System.out.println(Util.PRODUCT_QUANTITYMAX_TAG);
+                            }
 
-                    if (quantityMax == null) {
-                        System.out.println(Util.PRODUCT_QUANTITYMAX_TAG);
-                    }
+                            if (quantityMin == null) {
+                                System.out.println(Util.PRODUCT_QUANTITYMIN_TAG);
+                            }
 
-                    if (quantityMin == null) {
-                        System.out.println(Util.PRODUCT_QUANTITYMIN_TAG);
-                    }
+                            if (price == null) {
+                                System.out.println(Util.PRODUCT_PRICE_TAG);
+                            }
+                            if (Image == null) {
+                                System.out.println(Util.PRODUCT_IMAGE_TAG);
+                            }
 
-                    if (price == null) {
-                        System.out.println(Util.PRODUCT_PRICE_TAG);
-                    }
-                    if (Image == null) {
-                        System.out.println(Util.PRODUCT_IMAGE_TAG);
-                    }
-                    
-                    if (Description == null) {
-                        System.out.println(Util.PRODUCT_DESCRIPTION_TAG);
-                    }
-                    
-                    if (Category == null) {
-                        System.out.println(Util.PRODUCT_CATEGORY_TAG);
-                    }
+                            if (Description == null) {
+                                System.out.println(Util.PRODUCT_DESCRIPTION_TAG);
+                            }
+
+                            if (Category == null) {
+                                System.out.println(Util.PRODUCT_CATEGORY_TAG);
+                            }
+                        }
                 }
-                pos++;
+                else
+                {
+                    if (NameProduct == null)
+                        System.out.println(Util.ERROR_PRODUCT_NAMEPRODUCT_TAG);
+                    
+                    pos++;
+                }
             }
         } catch (JDOMParseException e) {
             System.out.println(Util.ERROR_XML_EMPTY_FILE);
@@ -105,6 +122,8 @@ public class ProductsXMLfile {
             System.out.println(Util.ERROR_XML_PROCESSING_FILE);
             e.printStackTrace();
         }
+
+        return(product);    
     }
        
     public static boolean saveProductsInXML(Product product) 
@@ -172,7 +191,65 @@ public class ProductsXMLfile {
         return true;
     }
     
-    public static void removeProductsFromDataBase(String productToRemove) 
+    public static boolean readProductNameOfProductFromXml(String NameProductRegistration)
+    {//leer Nombre De Producto De Xml
+        Document        doc;
+        Element         root,child;
+        List <Element>  rootChildrens;
+        String          NameProduct;
+        boolean         found = false;
+        int             pos = 0;
+
+        SAXBuilder      builder = new SAXBuilder();
+
+        try
+        {
+            doc = builder.build(Util.PRODUCTS_XML_PATH);
+
+            root = doc.getRootElement();
+
+            rootChildrens = root.getChildren();
+
+            while (!found && pos < rootChildrens.size())
+            {
+                child = rootChildrens.get(pos);    
+                
+                // Se obtine el valor dentro de las etiquetas NameProduct
+                NameProduct        = child.getAttributeValue(Util.PRODUCT_NAMEPRODUCT_TAG);
+                
+                if(NameProduct != null && NameProduct.equals(NameProductRegistration))
+                {
+                    found = true;
+                }
+                else
+                {
+                    if (NameProduct == null)
+                        System.out.println(Util.ERROR_PRODUCT_NAMEPRODUCT_TAG);
+                    
+                    pos++;
+                }
+            }
+        }
+        catch(JDOMParseException e)
+        {
+            System.out.println(Util.ERROR_XML_EMPTY_FILE);
+            e.printStackTrace();
+        }
+        catch(JDOMException e)
+        {
+            System.out.println(Util.ERROR_XML_PROCESSING_FILE);
+            e.printStackTrace();
+        }
+        catch(IOException e)
+        {
+            System.out.println(Util.ERROR_XML_PROCESSING_FILE);
+            e.printStackTrace();
+        }
+
+        return found;
+    }
+    
+    public static void removeProductsFromXML(String productToRemove) 
     {
         Document        doc;
         Element         root,child;

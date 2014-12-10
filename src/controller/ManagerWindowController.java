@@ -1,13 +1,22 @@
 package controller;
 
+import static controller.RegisterWindowController.toLowerCaseUserName;
+import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import model.Product;
+import model.ProductComparator;
 import model.ProductList;
 import model.ProductsXMLfile;
+import model.UsersXMLfile;
 
 /**
  * @author LeonardoSotillo
@@ -16,7 +25,6 @@ import model.ProductsXMLfile;
  */
 public class ManagerWindowController {
         
-    
     /**
      *
      * @param nameProduct
@@ -25,17 +33,25 @@ public class ManagerWindowController {
      * @param quantityMin
      * @param price
      * @param Image
-     * @param description
-     * @param category
      */
-    
-
     public static void saveProductsInXml(String nameProduct, String provider, String quantityMax, String quantityMin, String price, String Image, String TADescription, String CBCategory)
     {
         Product product = new  Product(nameProduct, provider, quantityMax, quantityMin, price, Image,  TADescription, CBCategory);
         
         ProductsXMLfile.saveProductsInXML(product);
     } 
+    
+    public static boolean checkProductName (String productNameRegistration)
+    {
+        toLowerCaseUserName = productNameRegistration.toLowerCase();
+        
+        return(ProductsXMLfile.readProductNameOfProductFromXml(toLowerCaseUserName));
+    }
+    
+    public static Product ConsultProduct(String nameProduct)
+    {
+        return(ProductsXMLfile.readAllProductsFromXML(nameProduct));
+    }
     
   /*
     public static void loadAllProductsInComboBox()

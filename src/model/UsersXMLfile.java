@@ -345,6 +345,7 @@ public class UsersXMLfile {
      * Method to read users in the data base and add them to a list
      * @param listUser
      */
+    
     public static void readAllUsersFromXml(UsersList listUser)
     {
         User            user = null;

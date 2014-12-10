@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
         public void cargarImg(){
             try{
                 Icon icon = new ImageIcon(getClass().getResource("/images/telefono.jpg"));
-                AddProductWindow.jLImagen.setIcon(icon);
+                ConsultProduct.jLImagen.setIcon(icon);
             }catch (Exception error){
                 JOptionPane.showMessageDialog(null, "ERROR " +error);
             }

@@ -2,11 +2,17 @@ package view;
 
 import controller.ManagerWindowController;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import model.Product;
+import model.ProductComparator;
 
 /**
  * @author LeonardoSotillo
@@ -41,18 +47,6 @@ public class ManagerWindow extends VentaOnline {
     private void initComponents() {
 
         jTPManagerWindow = new javax.swing.JTabbedPane();
-        jLPCategory = new javax.swing.JLayeredPane();
-        jTBTools2 = new javax.swing.JToolBar();
-        jBAddCategory = new javax.swing.JButton();
-        jSeparator6 = new javax.swing.JSeparator();
-        jBRemoveCategory = new javax.swing.JButton();
-        jSeparator7 = new javax.swing.JSeparator();
-        jBConsultCategory = new javax.swing.JButton();
-        jSeparator8 = new javax.swing.JSeparator();
-        jBModifyCategory = new javax.swing.JButton();
-        jLTittleProfile2 = new javax.swing.JLabel();
-        jTFNameUser2 = new javax.swing.JTextField();
-        jBExit2 = new javax.swing.JButton();
         jLPUsers = new javax.swing.JLayeredPane();
         jLMessage2 = new javax.swing.JLabel();
         jLMessage1 = new javax.swing.JLabel();
@@ -90,114 +84,44 @@ public class ManagerWindow extends VentaOnline {
         jBAddProduct = new javax.swing.JButton();
         jBExamineImage = new javax.swing.JButton();
         jTFPathImage = new javax.swing.JTextField();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        jLNameProduct1 = new javax.swing.JLabel();
+        jTFNameProductConsult = new javax.swing.JTextField();
+        jBConsult = new javax.swing.JButton();
+        jTFNameConsult = new javax.swing.JTextField();
+        jLNameProductConsult = new javax.swing.JLabel();
+        jLProviderProductConsult = new javax.swing.JLabel();
+        jLCantMaxConsult = new javax.swing.JLabel();
+        jLCantMinConsult = new javax.swing.JLabel();
+        jLPriceConsult = new javax.swing.JLabel();
+        jLCategoryConsult = new javax.swing.JLabel();
+        jLPathConsult = new javax.swing.JLabel();
+        jLDescripConcult = new javax.swing.JLabel();
+        jTFProviderConsult = new javax.swing.JTextField();
+        jTFCantMaxConsult = new javax.swing.JTextField();
+        jTFCantMinConsult = new javax.swing.JTextField();
+        jTFPriceConsult = new javax.swing.JTextField();
+        jTFCategoryConsult = new javax.swing.JTextField();
+        jTFPathConsult = new javax.swing.JTextField();
+        jTFDescripConsult = new javax.swing.JTextField();
+        jClearConsult = new javax.swing.JButton();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
+        jLPCategory = new javax.swing.JLayeredPane();
+        jTBTools2 = new javax.swing.JToolBar();
+        jBAddCategory = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jBConsultCategory = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JSeparator();
+        jBRemoveCategory = new javax.swing.JButton();
+        jSeparator8 = new javax.swing.JSeparator();
+        jBModifyCategory = new javax.swing.JButton();
+        jLTittleProfile2 = new javax.swing.JLabel();
+        jTFNameUser2 = new javax.swing.JTextField();
+        jBExit2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTPManagerWindow.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTBTools2.setBackground(new java.awt.Color(255, 255, 255));
-        jTBTools2.setRollover(true);
-
-        jBAddCategory.setBackground(new java.awt.Color(255, 255, 255));
-        jBAddCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jBAddCategory.setText("AGREGAR");
-        jBAddCategory.setFocusable(false);
-        jBAddCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBAddCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jTBTools2.add(jBAddCategory);
-
-        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator6.setMaximumSize(new java.awt.Dimension(5, 20));
-        jTBTools2.add(jSeparator6);
-
-        jBRemoveCategory.setBackground(new java.awt.Color(255, 255, 255));
-        jBRemoveCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jBRemoveCategory.setText("ELIMINAR");
-        jBRemoveCategory.setFocusable(false);
-        jBRemoveCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBRemoveCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jTBTools2.add(jBRemoveCategory);
-
-        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator7.setMaximumSize(new java.awt.Dimension(5, 20));
-        jTBTools2.add(jSeparator7);
-
-        jBConsultCategory.setBackground(new java.awt.Color(255, 255, 255));
-        jBConsultCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jBConsultCategory.setText("BUSCAR");
-        jBConsultCategory.setFocusable(false);
-        jBConsultCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBConsultCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jTBTools2.add(jBConsultCategory);
-
-        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator8.setMaximumSize(new java.awt.Dimension(5, 20));
-        jTBTools2.add(jSeparator8);
-
-        jBModifyCategory.setBackground(new java.awt.Color(255, 255, 255));
-        jBModifyCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jBModifyCategory.setText("MODIFICAR CATEGORIA");
-        jBModifyCategory.setFocusable(false);
-        jBModifyCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBModifyCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jTBTools2.add(jBModifyCategory);
-
-        jLTittleProfile2.setBackground(new java.awt.Color(255, 255, 255));
-        jLTittleProfile2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLTittleProfile2.setText("ADMINISTRADOR:");
-
-        jTFNameUser2.setEditable(false);
-        jTFNameUser2.setBackground(new java.awt.Color(255, 255, 255));
-        jTFNameUser2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jBExit2.setBackground(new java.awt.Color(255, 255, 255));
-        jBExit2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jBExit2.setText("SALIR");
-        jBExit2.setToolTipText("");
-        jBExit2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBExit2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jLPCategoryLayout = new javax.swing.GroupLayout(jLPCategory);
-        jLPCategory.setLayout(jLPCategoryLayout);
-        jLPCategoryLayout.setHorizontalGroup(
-            jLPCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTBTools2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jLPCategoryLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLTittleProfile2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFNameUser2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(456, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLPCategoryLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBExit2)
-                .addContainerGap())
-        );
-        jLPCategoryLayout.setVerticalGroup(
-            jLPCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLPCategoryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTBTools2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 361, Short.MAX_VALUE)
-                .addGroup(jLPCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLTittleProfile2)
-                    .addComponent(jTFNameUser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71)
-                .addComponent(jBExit2)
-                .addContainerGap())
-        );
-        jLPCategory.setLayer(jTBTools2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLPCategory.setLayer(jLTittleProfile2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLPCategory.setLayer(jTFNameUser2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLPCategory.setLayer(jBExit2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jTPManagerWindow.addTab("    CATEGORIA     ", jLPCategory);
 
         jLPUsers.setBackground(new java.awt.Color(255, 255, 255));
         jLPUsers.setMaximumSize(new java.awt.Dimension(10, 10));
@@ -401,8 +325,7 @@ public class ManagerWindow extends VentaOnline {
                             .addComponent(jTFPrice, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCBCategory, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jTFPathImage, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTFPathImage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jBExamineImage)))))
                 .addGap(34, 34, 34)
@@ -474,6 +397,173 @@ public class ManagerWindow extends VentaOnline {
 
         jTPProduct.addTab("     AGREGAR   ", jLayeredPane1);
 
+        jLNameProduct1.setText("Nombre del producto a consultar");
+
+        jBConsult.setText("CONSULTAR");
+        jBConsult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultActionPerformed(evt);
+            }
+        });
+
+        jTFNameConsult.setEditable(false);
+
+        jLNameProductConsult.setText("NOMBRE");
+
+        jLProviderProductConsult.setText("PROVEEDOR");
+
+        jLCantMaxConsult.setText("CANTIDAD EXISTENTE");
+
+        jLCantMinConsult.setText("CANTIDAD MINIMA");
+
+        jLPriceConsult.setText("PRECIO");
+
+        jLCategoryConsult.setText("CATEGORIA");
+
+        jLPathConsult.setText("PATH IMAGEN");
+
+        jLDescripConcult.setText("DESCRIPCION");
+
+        jTFProviderConsult.setEditable(false);
+
+        jTFCantMaxConsult.setEditable(false);
+
+        jTFCantMinConsult.setEditable(false);
+
+        jTFPriceConsult.setEditable(false);
+
+        jTFCategoryConsult.setEditable(false);
+
+        jTFPathConsult.setEditable(false);
+
+        jTFDescripConsult.setEditable(false);
+
+        jClearConsult.setText("LIMPIAR");
+        jClearConsult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jClearConsultActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jClearConsult)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBConsult))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLNameProduct1)
+                            .addComponent(jLNameProductConsult)
+                            .addComponent(jLProviderProductConsult)
+                            .addComponent(jLCantMaxConsult)
+                            .addComponent(jLCantMinConsult)
+                            .addComponent(jLPriceConsult)
+                            .addComponent(jLCategoryConsult)
+                            .addComponent(jLPathConsult)
+                            .addComponent(jLDescripConcult))
+                        .addGap(28, 28, 28)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTFNameProductConsult)
+                            .addComponent(jTFProviderConsult)
+                            .addComponent(jTFCantMaxConsult)
+                            .addComponent(jTFCantMinConsult)
+                            .addComponent(jTFPriceConsult)
+                            .addComponent(jTFCategoryConsult)
+                            .addComponent(jTFPathConsult)
+                            .addComponent(jTFDescripConsult, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                            .addComponent(jTFNameConsult))
+                        .addGap(88, 88, 88)))
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLNameProduct1)
+                    .addComponent(jTFNameProductConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLNameProductConsult)
+                    .addComponent(jTFNameConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLProviderProductConsult)
+                    .addComponent(jTFProviderConsult, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCantMaxConsult)
+                    .addComponent(jTFCantMaxConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCantMinConsult)
+                    .addComponent(jTFCantMinConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLPriceConsult)
+                    .addComponent(jTFPriceConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCategoryConsult)
+                    .addComponent(jTFCategoryConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLPathConsult)
+                    .addComponent(jTFPathConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jLDescripConcult)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTFDescripConsult, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBConsult)
+                    .addComponent(jClearConsult))
+                .addContainerGap())
+        );
+        jLayeredPane2.setLayer(jLNameProduct1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFNameProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jBConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFNameConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLNameProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLProviderProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLCantMaxConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLCantMinConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLPriceConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLCategoryConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLPathConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLDescripConcult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFProviderConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFCantMaxConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFCantMinConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFPriceConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFCategoryConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFPathConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFDescripConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jClearConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTPProduct.addTab("CONSULTAR", jLayeredPane2);
+
+        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
+        jLayeredPane3.setLayout(jLayeredPane3Layout);
+        jLayeredPane3Layout.setHorizontalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 793, Short.MAX_VALUE)
+        );
+        jLayeredPane3Layout.setVerticalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 503, Short.MAX_VALUE)
+        );
+
+        jTPProduct.addTab("    ELIMINAR     ", jLayeredPane3);
+
         javax.swing.GroupLayout jLPProductLayout = new javax.swing.GroupLayout(jLPProduct);
         jLPProduct.setLayout(jLPProductLayout);
         jLPProductLayout.setHorizontalGroup(
@@ -489,6 +579,112 @@ public class ManagerWindow extends VentaOnline {
         jLPProduct.setLayer(jTPProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTPManagerWindow.addTab("     PRODUCTO     ", jLPProduct);
+
+        jTBTools2.setBackground(new java.awt.Color(255, 255, 255));
+        jTBTools2.setRollover(true);
+
+        jBAddCategory.setBackground(new java.awt.Color(255, 255, 255));
+        jBAddCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jBAddCategory.setText("AGREGAR");
+        jBAddCategory.setFocusable(false);
+        jBAddCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBAddCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jTBTools2.add(jBAddCategory);
+
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator6.setMaximumSize(new java.awt.Dimension(5, 20));
+        jTBTools2.add(jSeparator6);
+
+        jBConsultCategory.setBackground(new java.awt.Color(255, 255, 255));
+        jBConsultCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jBConsultCategory.setText("BUSCAR");
+        jBConsultCategory.setFocusable(false);
+        jBConsultCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBConsultCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jTBTools2.add(jBConsultCategory);
+
+        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator7.setMaximumSize(new java.awt.Dimension(5, 20));
+        jTBTools2.add(jSeparator7);
+
+        jBRemoveCategory.setBackground(new java.awt.Color(255, 255, 255));
+        jBRemoveCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jBRemoveCategory.setText("ELIMINAR");
+        jBRemoveCategory.setFocusable(false);
+        jBRemoveCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBRemoveCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jTBTools2.add(jBRemoveCategory);
+
+        jSeparator8.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator8.setMaximumSize(new java.awt.Dimension(5, 20));
+        jTBTools2.add(jSeparator8);
+
+        jBModifyCategory.setBackground(new java.awt.Color(255, 255, 255));
+        jBModifyCategory.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jBModifyCategory.setText("MODIFICAR CATEGORIA");
+        jBModifyCategory.setFocusable(false);
+        jBModifyCategory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBModifyCategory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jTBTools2.add(jBModifyCategory);
+
+        jLTittleProfile2.setBackground(new java.awt.Color(255, 255, 255));
+        jLTittleProfile2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLTittleProfile2.setText("ADMINISTRADOR:");
+
+        jTFNameUser2.setEditable(false);
+        jTFNameUser2.setBackground(new java.awt.Color(255, 255, 255));
+        jTFNameUser2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jBExit2.setBackground(new java.awt.Color(255, 255, 255));
+        jBExit2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jBExit2.setText("SALIR");
+        jBExit2.setToolTipText("");
+        jBExit2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBExit2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jLPCategoryLayout = new javax.swing.GroupLayout(jLPCategory);
+        jLPCategory.setLayout(jLPCategoryLayout);
+        jLPCategoryLayout.setHorizontalGroup(
+            jLPCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTBTools2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLPCategoryLayout.createSequentialGroup()
+                .addGroup(jLPCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLPCategoryLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBExit2))
+                    .addGroup(jLPCategoryLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLTittleProfile2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFNameUser2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jLPCategoryLayout.setVerticalGroup(
+            jLPCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLPCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTBTools2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                .addGroup(jLPCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLTittleProfile2)
+                    .addComponent(jTFNameUser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71)
+                .addComponent(jBExit2)
+                .addContainerGap())
+        );
+        jLPCategory.setLayer(jTBTools2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLPCategory.setLayer(jLTittleProfile2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLPCategory.setLayer(jTFNameUser2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLPCategory.setLayer(jBExit2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTPManagerWindow.addTab("    CATEGORIA     ", jLPCategory);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -530,11 +726,11 @@ public class ManagerWindow extends VentaOnline {
         int cantidadMax = -1;
         float precio      = -1;
         String PathImage = "";
-         PathImage     = jTFPathImage.getText();
-            String Name = jTFNameProduct.getText();  
-            String Proveedor = jTFProvider.getText(); 
-            String Descripcion = jTADescription.getText(); 
-            String Categoria = jCBCategory.getSelectedItem().toString();
+        PathImage     = jTFPathImage.getText();
+        String Name = jTFNameProduct.getText();  
+        String Proveedor = jTFProvider.getText(); 
+        String Descripcion = jTADescription.getText(); 
+        String Categoria = jCBCategory.getSelectedItem().toString();
             
 
         if (!"".equals(jTFQuantityMax.getText()) && !"".equals(jTFQuantityMin.getText()) && !"".equals(jTFPrice.getText()) &&
@@ -558,19 +754,14 @@ public class ManagerWindow extends VentaOnline {
                 }
                 else
                     JOptionPane.showMessageDialog(this,"Cantidades o precio invalido.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-
-
             }
             catch(NumberFormatException e)
             {
                 JOptionPane.showMessageDialog(this,"Las cantidades o precio no contienen el formato correcto.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);    
-
             }
         }
         else
-                JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-                
-        
+           JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jBAddProductActionPerformed
 
     private void jBExamineImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExamineImageActionPerformed
@@ -597,6 +788,55 @@ public class ManagerWindow extends VentaOnline {
             jTFPathImage.setText(pathImg);
         }
     }//GEN-LAST:event_jBExamineImageActionPerformed
+
+    private void jBConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultActionPerformed
+      // ACCION DEL BOTON PARA CONSULTAR PRODUCTO
+      String consultar = jTFNameProductConsult.getText();
+      String name,proveedor,cantmax,cantmin,image,precio,descrip,categoria;
+
+        
+      if(!"".equals(consultar))
+      {
+          if(ManagerWindowController.checkProductName(consultar))
+          {
+
+              Product lProduct = ManagerWindowController.ConsultProduct(consultar);
+
+              name = lProduct.getNameProduct(); 
+              proveedor = lProduct.getProvider();
+              cantmax = lProduct.getQuantityMax();
+              cantmin = lProduct.getQuantityMin();
+              precio = lProduct.getPrice();
+              image = lProduct.getImg();              
+              descrip = lProduct.getDescription();
+              categoria = lProduct.getCategory();
+              
+              jTFNameConsult.setText(name);
+              jTFProviderConsult.setText(proveedor);
+              jTFCantMaxConsult.setText(cantmax);
+              jTFCantMinConsult.setText(cantmin);          
+              jTFPriceConsult.setText(precio);
+              jTFPathConsult.setText(image);
+              jTFDescripConsult.setText(descrip);
+              jTFCategoryConsult.setText(categoria);
+          }
+          else
+              JOptionPane.showMessageDialog(this,"El producto que esta buscando no se encuentra registrado.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+      }
+      else
+         JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jBConsultActionPerformed
+
+    private void jClearConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jClearConsultActionPerformed
+              jTFNameConsult.setText(null);
+              jTFProviderConsult.setText(null);
+              jTFCantMaxConsult.setText(null);
+              jTFCantMinConsult.setText(null);          
+              jTFPriceConsult.setText(null);
+              jTFPathConsult.setText(null);
+              jTFDescripConsult.setText(null);
+              jTFCategoryConsult.setText(null);
+    }//GEN-LAST:event_jClearConsultActionPerformed
 
     public static void NameUser(String name, String lastName){
 
@@ -649,6 +889,7 @@ public class ManagerWindow extends VentaOnline {
     private javax.swing.JButton jBAddCategory;
     private javax.swing.JButton jBAddProduct;
     private javax.swing.JButton jBAddUser;
+    private javax.swing.JButton jBConsult;
     private javax.swing.JButton jBConsultCategory;
     private javax.swing.JButton jBConsultUser;
     private javax.swing.JButton jBExamineImage;
@@ -659,23 +900,35 @@ public class ManagerWindow extends VentaOnline {
     private javax.swing.JButton jBRemoveCategory;
     private javax.swing.JButton jBRemoveUser;
     private javax.swing.JComboBox jCBCategory;
+    private javax.swing.JButton jClearConsult;
     private javax.swing.JLabel jLAddImage;
+    private javax.swing.JLabel jLCantMaxConsult;
+    private javax.swing.JLabel jLCantMinConsult;
     private javax.swing.JLabel jLCategory;
+    private javax.swing.JLabel jLCategoryConsult;
+    private javax.swing.JLabel jLDescripConcult;
     private javax.swing.JLabel jLDescription;
     private javax.swing.JLabel jLImg;
     private javax.swing.JLabel jLMessage1;
     private javax.swing.JLabel jLMessage2;
     private javax.swing.JLabel jLNameProduct;
+    private javax.swing.JLabel jLNameProduct1;
+    private javax.swing.JLabel jLNameProductConsult;
     private javax.swing.JLayeredPane jLPCategory;
     private javax.swing.JLayeredPane jLPProduct;
     private javax.swing.JLayeredPane jLPUsers;
+    private javax.swing.JLabel jLPathConsult;
     private javax.swing.JLabel jLPrice;
+    private javax.swing.JLabel jLPriceConsult;
     private javax.swing.JLabel jLProvider;
+    private javax.swing.JLabel jLProviderProductConsult;
     private javax.swing.JLabel jLQuantityMax;
     private javax.swing.JLabel jLQuantityMin;
     private javax.swing.JLabel jLTittleProfile2;
     private javax.swing.JLabel jLTittleProfile3;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator;
     private javax.swing.JSeparator jSeparator1;
@@ -686,12 +939,21 @@ public class ManagerWindow extends VentaOnline {
     private javax.swing.JTextArea jTADescription;
     private javax.swing.JToolBar jTBTools2;
     private javax.swing.JToolBar jTBTools3;
+    private javax.swing.JTextField jTFCantMaxConsult;
+    private javax.swing.JTextField jTFCantMinConsult;
+    private javax.swing.JTextField jTFCategoryConsult;
+    private javax.swing.JTextField jTFDescripConsult;
+    private javax.swing.JTextField jTFNameConsult;
     private javax.swing.JTextField jTFNameProduct;
+    private javax.swing.JTextField jTFNameProductConsult;
     private javax.swing.JTextField jTFNameUser2;
     private javax.swing.JTextField jTFNameUser3;
+    private javax.swing.JTextField jTFPathConsult;
     private javax.swing.JTextField jTFPathImage;
     private javax.swing.JTextField jTFPrice;
+    private javax.swing.JTextField jTFPriceConsult;
     private javax.swing.JTextField jTFProvider;
+    private javax.swing.JTextField jTFProviderConsult;
     private javax.swing.JTextField jTFQuantityMax;
     private javax.swing.JTextField jTFQuantityMin;
     private javax.swing.JTabbedPane jTPManagerWindow;
