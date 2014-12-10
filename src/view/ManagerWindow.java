@@ -831,7 +831,7 @@ public class ManagerWindow extends VentaOnline {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTPManagerWindow)
+            .addComponent(jTPManagerWindow, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();

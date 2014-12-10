@@ -158,6 +158,11 @@ public class SingInWindow extends VentaOnline {
                 {
                     if  ( (SingInWindowController.checkUserProfile(jTFUserName.getText(),jPFPassword.getText())).equals("Administrador Inventario") )
                     {
+                        SingInWindowController.clearOutlets(jTFUserName, jPFPassword);
+                        
+                        InventoryWindow inventoryWindow = new InventoryWindow();
+                        inventoryWindow.setVisible(true);
+                        inventoryWindow.setFatherWindow(this, true);
                         System.out.println("ADMINISTRADOR DE INVENTARIO");
                     }
                     else
