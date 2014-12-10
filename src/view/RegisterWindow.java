@@ -62,7 +62,7 @@ public class RegisterWindow extends VentaOnline {
 
         jLTittleRegister.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLTittleRegister.setForeground(new java.awt.Color(0, 0, 255));
-        jLTittleRegister.setText("     REGISTRO");
+        jLTittleRegister.setText("     REGISTRO DE USUARIO");
 
         jLName.setBackground(new java.awt.Color(255, 255, 255));
         jLName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -147,7 +147,7 @@ public class RegisterWindow extends VentaOnline {
                 .addGroup(jPRegisterWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPRegisterWindowLayout.createSequentialGroup()
                         .addComponent(jBver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
                         .addComponent(jBCancel)

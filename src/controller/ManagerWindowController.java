@@ -12,12 +12,15 @@ import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import model.Category;
 import model.Product;
 import model.ProductComparator;
+import model.CategoryList;
 import model.ProductList;
 import model.ProductsXMLfile;
 import model.User;
 import model.UsersXMLfile;
+
 
 /**
  * @author LeonardoSotillo
@@ -25,6 +28,8 @@ import model.UsersXMLfile;
  * version 1.0.0
  */
 public class ManagerWindowController {
+    
+    public static JComboBox categoryList;
         
     /**
      *
@@ -73,43 +78,49 @@ public class ManagerWindowController {
     {
         return(UsersXMLfile.readAllUsersFromXml(nameUser));
     }
-
     
-      /*
-    public static void loadAllProductsInComboBox()
+    public static void saveCategoryInXml(String nameCategory)
     {
-        ProductList List = new  ProductList(); 
+        Category category = new  Category(nameCategory);
+        ProductsXMLfile.saveCategoryInXML(category);
+    } 
+    
+    public static boolean checkCategory(String category)
+    {
+        toLowerCaseUserName = category.toLowerCase();        
+        return(ProductsXMLfile.readCategoryFromXml(toLowerCaseUserName));
+    }
+    
+    public static boolean CleanCategory(String nameCategory)
+    {
+        boolean found;
         
-        ProductsXMLfile.readAllProductsFromXML(List);
+        found = ProductsXMLfile.removeCategoryFromXML(nameCategory);
+        return found;      
+    }
+    
+    public static void loadAllCategoryInComboBox()
+    {
+        CategoryList List = new  CategoryList(); 
         
-        productList.removeAllItems();
+        ProductsXMLfile.readAllCategoryFromXMLCB(List);
+        
+        categoryList.removeAllItems();
         
         Iterator iterator = List.iterator();
         
         while (iterator.hasNext())
         {
-            Product actualProduct = (Product) iterator.next();
+            Category actualCategory = (Category) iterator.next();
             
-            String format = actualProduct.getNameProduct(); //+ " - " + actualProduct.getRif();
+            String format = actualCategory.getNameCategory(); //+ " - " + actualProduct.getRif();
             
-            productList.addItem(format);
+            categoryList.addItem(format);
         }
     }
     
-    public static void initComboBox(JComboBox productList)
+    public static void initComboBoxCategory(JComboBox categoryList)
     {
-        ManagerWindowController.productList = productList;
+        ManagerWindowController.categoryList = categoryList;
     }     
-    
-    public static void clearAllOutletsProduct(JTextField nameProduct, JTextField provider, JTextField quantityMax, JTextField quantityMin, JTextField price, JTextField Image, JTextArea description)
-    {
-        //se inicializan los atributos
-        ManagerWindowController.nameProduct.setText(null);
-        ManagerWindowController.provider.setText(null);
-        ManagerWindowController.quantityMax.setText(null);
-        ManagerWindowController.quantityMin.setText(null);
-        ManagerWindowController.price.setText(null);
-        ManagerWindowController.Image.setText(null);
-        ManagerWindowController.description.setText(null);
-    }*/
 }

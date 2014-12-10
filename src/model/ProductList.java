@@ -43,10 +43,8 @@ public class ProductList {
         return this.productList.add(product);
     }
  
-    
-        public boolean removeProduct(Product product)
+    public boolean removeProduct(Product product)
     {
         return this.productList.remove(product);
-    }
-    
+    } 
 }

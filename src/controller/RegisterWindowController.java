@@ -32,53 +32,6 @@ import model.UsersXMLfile;
  * version 1.0.0
  */
 public class RegisterWindowController {
- /*   
-    public static JTextField name;
-    public static JTextField lastName;
-    public static JTextField id;
-    public static JTextField address;
-    public static JTextField userName;
-    public static JPasswordField password;
-    public static JPasswordField confirmedPassword;
-    public static JDateChooser dateOfbirth;
-    public static JComboBox Extends;
-    public static String toLowerCaseUserName;
-    public static String CBprofile;
-    public static String CDdateOfbirth;
-    public static String email;
-    public static String confirmEmail;
-
-
-    
-
-    public static void initOutlets (JTextField name, JTextField lastName, JTextField id, JDateChooser dateOfbirth, String email, String confirmEmail, JTextField address,  JTextField userName, String profile, JPasswordField password, JPasswordField confirmPassword)
-    {
-        // Se obtiene en formato String la seleccion de la fecha dentro del JDateChooser
-        DateFormat df = DateFormat.getDateInstance();
-        CDdateOfbirth = df.format(dateOfbirth.getDate()); 
-   
-        //se inicializan los atributos
-        RegisterWindowController.name = name;
-        RegisterWindowController.lastName = lastName;
-        RegisterWindowController.id = id;
-        RegisterWindowController.confirmEmail   = confirmEmail;
-        RegisterWindowController.email = email;
-        RegisterWindowController.dateOfbirth = dateOfbirth;
-        RegisterWindowController.address = address;
-        RegisterWindowController.userName = userName;
-        RegisterWindowController.password = password;
-        RegisterWindowController.confirmedPassword = confirmPassword;
-        RegisterWindowController.CBprofile  = profile;
-
-        
-        // Se obtiene en formato String la selección del usuario dentro del JComboBox *******
-        //CBprofile     = (String) RegisterWindowController.profile.getSelectedItem(); ******
-        
-        //CDdateOfbirth = (String) RegisterWindowController.dateOfbirth.getToolTipText();    
-        
-        // Se generaliza el userName a un string en minusculas
-        toLowerCaseUserName = RegisterWindowController.userName.getText().toLowerCase();
-    }*/
     
     public static String ValidateProfile(String profile)
     {
@@ -119,7 +72,6 @@ public class RegisterWindowController {
         return(UsersXMLfile.readIDUsersFromXml(userIDRegistration));
     }
     
-
     /**
      * Method to save the created user in the data base 
      */
@@ -129,19 +81,6 @@ public class RegisterWindowController {
         
         UsersXMLfile.saveUsersInXml(user);
     }
-    
-    /*
-    public static void clearAllOutlets(JTextField name, JTextField lastName, JTextField id, String email, String confirmEmail, JTextField address, JTextField userName, JPasswordField password, JPasswordField confirmPassword)
-    {
-        //se inicializan los atributos
-        RegisterWindowController.name.setText(null);
-        RegisterWindowController.lastName.setText(null);
-        RegisterWindowController.id.setText(null);
-        RegisterWindowController.address.setText(null);
-        RegisterWindowController.userName.setText(null);
-        RegisterWindowController.password.setText(null);
-        RegisterWindowController.confirmedPassword.setText(null);
-    }*/
     
     public static boolean CleanUser(String nameUser)
     {
