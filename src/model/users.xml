@@ -5,7 +5,6 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <users>
-  <user name="fernando" lastName="obregon" id="21718395" dateOfBirth="05/12/2014" email="leonardo@hotmail.com" address="jsfbhdgf" profile="Administrador" userName="fer" password="fer" />
-  <user name="leonardo" lastName="sotillo" id="20475369" dateOfBirth="20/12/2014" email="leo@hotmail.com" address="vsgsdv hj" profile="Comprador" userName="leo" password="leo" />
-  <user name="fernando" lastName="obregon" id="20781965" dateOfBirth="07/12/2014" email="@gmail.comfernanrainier" address="el paraiso plaza madariaga" profile="Usuario" userName="fernando" password="fer" />
+  <user name="Fernando" lastName="Obregon" id="21718395" dateOfBirth="07/12/2014" email="fernanrainier@hotmail.com" address="el paraiso" profile="Administrador" userName="fercho" password="fercho" />
+  <user name="Jose" lastName="rechuti" id="17897264" dateOfBirth="08/12/2014" email="jose@hotmail.com" address="hadsfcbfhva" profile="Usuario" userName="jose" password="jose" />
 </users>

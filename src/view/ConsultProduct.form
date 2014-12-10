@@ -304,6 +304,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFCategoryProduct">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFCategoryProductActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTFImage">
         </Component>

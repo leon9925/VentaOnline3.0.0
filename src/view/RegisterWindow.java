@@ -271,71 +271,80 @@ public class RegisterWindow extends VentaOnline {
     private void jBAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAcceptActionPerformed
         
         //String CBprofile = RegisterWindowController.ValidateProfile(jCBProfile); Cambiar el perfil de dato a String
-        String FechaObtenida = "";
         int    Cedula = -1;
-        
-        try{
-            Cedula   = Integer.parseInt(jTFID.getText());
-            FechaObtenida = df.format(jDCDateOfBirth.getDate());
-        }
-        catch(NumberFormatException e)
-        {
-            JOptionPane.showMessageDialog(this,"La cedula introducida no contiene el formato correcto.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);    
-            Cedula = -1;
-        }
-        catch(NullPointerException e)
-        {
-            JOptionPane.showMessageDialog(this,"El campo de fecha de nacimiento se encuentra vacio.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-            FechaObtenida = "";
-        }
+        String Profile       = "Usuario";
+        String FechaObtenida = "";
+        String Email         = RegisterWindowController.ValidateEmail(jTFEmail, jCBEmailExt1);
+        String ConfirmEmail  = RegisterWindowController.ValidateEmail(jTFConfirmEmail, jCBEmailExt2);
+        String Name     = jTFName.getText();
+        String LastName = jTFLastName.getText();
+        String Address  = jTFAddress.getText();
+        String UserName = jTFUserName.getText();
+        String Password = jPFPassword.getText();
+        String ConfirmPassword = jPFConfirmPassword.getText();
+        String ID       = jTFID.getText();
 
-        if (Cedula != -1)
+        if (!"".equals(Name) && !"".equals(LastName) && !"".equals(ID) && !"".equals(Email) && 
+            !"".equals(ConfirmEmail) && !"".equals(UserName)  && !"".equals(Password) && 
+            !"".equals(ConfirmPassword) && !"".equals(Address))
         {
-            if (!"".equals(FechaObtenida))
-            {
-                if (!"".equals(jTFName.getText()) && !"".equals(jTFLastName.getText()) && !"".equals(jTFEmail.getText()) &&
-                    !"".equals(jTFConfirmEmail.getText()) && !"".equals(jTFAddress.getText()) && !"".equals(jTFUserName.getText())  && 
-                        !"".equals(jPFPassword.getText()) && !"".equals(jPFConfirmPassword.getText()) && !"".equals(jTFID.getText()))
-                {
-                    if ( (jTFEmail.getText().equals(jTFConfirmEmail.getText())) )
+            try{
+                Cedula   = Integer.parseInt(jTFID.getText());
+                FechaObtenida = df.format(jDCDateOfBirth.getDate());
+                    
+                    if(Cedula != -1 && !"".equals(FechaObtenida))
                     {
-                        if (!(RegisterWindowController.checkUserName(jTFUserName.getText())))
+                        if ( Email.equals(ConfirmEmail))
                         {
-                            if (!(RegisterWindowController.checkEmailUser(jTFEmail.getText())))
-                            {    
-                                if (!(RegisterWindowController.checkIDUser(jTFID.getText())))
-                                {
-                                    if ((jPFPassword.getText().equals(jPFConfirmPassword.getText())) )
-                                    { 
+                            if (!(RegisterWindowController.checkUserName(jTFUserName.getText())))
+                            {
+                                if (!(RegisterWindowController.checkEmailUser(jTFEmail.getText())))
+                                {    
+                                    if (!(RegisterWindowController.checkIDUser(jTFID.getText())))
+                                    {
+                                        if ((jPFPassword.getText().equals(jPFConfirmPassword.getText())) )
+                                        { 
 
-                                            initMyOwnComponents();
+                                                RegisterWindowController.saveUsersInXml(Name,LastName,ID,FechaObtenida,Email,ConfirmEmail,Address,UserName,Password,ConfirmPassword,Profile);
 
-                                            JOptionPane.showMessageDialog(this,"Usuario registrado exitosamente.","",JOptionPane.INFORMATION_MESSAGE);
+                                                JOptionPane.showMessageDialog(this,"Usuario registrado exitosamente.","",JOptionPane.INFORMATION_MESSAGE);
 
-                                            restoreFatherWindow();
+                                                restoreFatherWindow();
 
-                                            this.dispose();
-                                            
+                                                this.dispose();
+
+                                        }
+                                        else
+                                            JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                                     }
                                     else
-                                        JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                        JOptionPane.showMessageDialog(this,"Esta cedula de identidad ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                                 }
                                 else
-                                    JOptionPane.showMessageDialog(this,"Esta cedula de identidad ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                    JOptionPane.showMessageDialog(this,"Este correo electronico ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                             }
                             else
-                                JOptionPane.showMessageDialog(this,"Este correo electronico ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                JOptionPane.showMessageDialog(this,"Este nombre de usuario ya exite.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                         }
                         else
-                            JOptionPane.showMessageDialog(this,"Este nombre de usuario ya exite.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(this,"Los correos electronicos no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                     }
                     else
-                        JOptionPane.showMessageDialog(this,"Los correos electronicos no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-                }
-                else
-                    JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                        JOptionPane.showMessageDialog(this,"Valores incorrectos.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+            }
+            catch(NumberFormatException e)
+            {
+                JOptionPane.showMessageDialog(this,"La cedula introducida no contiene el formato correcto.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);    
+                Cedula = -1;
+            }
+            catch(NullPointerException e)
+            {
+                JOptionPane.showMessageDialog(this,"El campo de fecha de nacimiento se encuentra vacio.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                FechaObtenida = "";
             }
         }
+        else
+            JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jBAcceptActionPerformed
 
     private void jBverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBverActionPerformed
@@ -344,17 +353,14 @@ public class RegisterWindow extends VentaOnline {
         jTextField1.setText(FechaObtenida);
     }//GEN-LAST:event_jBverActionPerformed
 
-
+/*
     private void initMyOwnComponents()
     {
-        String Profile      = "Usuario";
-        String Email        = RegisterWindowController.ValidateEmail(jTFEmail, jCBEmailExt1);
-        String ConfirmEmail = RegisterWindowController.ValidateEmail(jTFConfirmEmail, jCBEmailExt2);
         
         RegisterWindowController.initOutlets(jTFName, jTFLastName,  jTFID, jDCDateOfBirth, Email, ConfirmEmail, jTFAddress, jTFUserName, Profile, jPFPassword, jPFConfirmPassword);
         RegisterWindowController.saveUsersInXml();
         RegisterWindowController.clearAllOutlets(jTFName, jTFLastName,  jTFID, Email, ConfirmEmail, jTFAddress, jTFUserName, jPFPassword, jPFConfirmPassword);
-    }
+    }*/
         
 
     public static void main(String args[]) {

@@ -343,16 +343,19 @@ public class UsersXMLfile {
 
         /**
      * Method to read users in the data base and add them to a list
+     * @param NameUserConsult
      * @param listUser
+     * @return 
      */
     
-    public static void readAllUsersFromXml(UsersList listUser)
+    public static User readAllUsersFromXml(String NameUserConsult)
     {
         User            user = null;
         Document        doc;
         Element         root,child;
         List <Element>  rootChildrens;
         String          name, lastName, id, dateOfbirth, email, address, profile, userName, password;
+        boolean         found = false;
         int             pos = 0;
 
         SAXBuilder      builder = new SAXBuilder();
@@ -365,60 +368,69 @@ public class UsersXMLfile {
 
             rootChildrens = root.getChildren();
 
-            while (pos < rootChildrens.size())
+            while (!found && pos < rootChildrens.size())
             {
-                child = rootChildrens.get(pos);
-
-                name            = child.getAttributeValue(Util.USER_NAME_TAG);
-                lastName        = child.getAttributeValue(Util.USER_LASTNAME_TAG);
-                id              = child.getAttributeValue(Util.USER_ID_TAG); 
-                dateOfbirth     = child.getAttributeValue(Util.USER_DATEOFBIRTH_TAG); 
-                email           = child.getAttributeValue(Util.USER_EMAIL_TAG);
-                address         = child.getAttributeValue(Util.USER_ADDRESS_TAG);
-                profile         = child.getAttributeValue(Util.USER_PROFILE_TAG);
+                child = rootChildrens.get(pos);    
+                
+                // Se obtine el valor dentro de las etiquetas NameProduct, userType y password
                 userName        = child.getAttributeValue(Util.USER_USERNAME_TAG);
-                password        = child.getAttributeValue(Util.USER_PASSWORD_TAG);
 
-                if(name != null && lastName != null && id != null && dateOfbirth != null && address != null && email != null && profile != null && userName != null && password != null)
+                if(userName != null && userName.equals(NameUserConsult))
                 {
-                    // Se crea un usuario
-                    user = new User(name, lastName, id, dateOfbirth, email, address, profile, userName, password);
-                    
-                    // Se añade el usuario a la lista
-                    listUser.addUser(user);
+                    name        = child.getAttributeValue(Util.USER_NAME_TAG);
+                    lastName        = child.getAttributeValue(Util.USER_LASTNAME_TAG);
+                    id              = child.getAttributeValue(Util.USER_ID_TAG); 
+                    dateOfbirth     = child.getAttributeValue(Util.USER_DATEOFBIRTH_TAG); 
+                    email           = child.getAttributeValue(Util.USER_EMAIL_TAG);
+                    address         = child.getAttributeValue(Util.USER_ADDRESS_TAG);
+                    profile         = child.getAttributeValue(Util.USER_PROFILE_TAG);
+                    userName        = child.getAttributeValue(Util.USER_USERNAME_TAG);
+                    password        = child.getAttributeValue(Util.USER_PASSWORD_TAG);
+
+                    if(name != null && lastName != null && id != null && dateOfbirth != null && address != null && email != null && profile != null && userName != null && password != null)
+                    {
+                        // Se crea un usuario
+                        user = new User(name, lastName, id, dateOfbirth, email, address, profile, userName, password);
+                        found = true;
+                    }
+                    else
+                    {
+                        // Errores posibles en caso de que alguna etiqueta dentro del archivo XML este vacia
+                        if (name == null)
+                            System.out.println(Util.ERROR_USER_NAME_TAG);
+
+                        if (lastName == null)
+                            System.out.println(Util.ERROR_USER_LASTNAME_TAG);
+
+                        if (id == null)
+                            System.out.println(Util.ERROR_USER_ID_TAG);
+
+                        if (dateOfbirth == null)
+                            System.out.println(Util.ERROR_USER_DATEOFBIRTH_TAG);
+
+                        if (email == null)
+                            System.out.println(Util.ERROR_USER_EMAIL_TAG);
+
+                        if (address == null)
+                            System.out.println(Util.ERROR_USER_ADDRESS_TAG);
+
+                        if (profile == null)
+                            System.out.println(Util.ERROR_USER_PROFILE_TAG);
+
+                        if (userName == null)
+                            System.out.println(Util.ERROR_USER_USERNAME_TAG);
+
+                        if (password == null)
+                            System.out.println(Util.ERROR_USER_PASSWORD_TAG);
+                    }
                 }
                 else
                 {
-                    // Errores posibles en caso de que alguna etiqueta dentro del archivo XML este vacia
-                    if (name == null)
-                        System.out.println(Util.ERROR_USER_NAME_TAG);
-
-                    if (lastName == null)
-                        System.out.println(Util.ERROR_USER_LASTNAME_TAG);
-                    
-                    if (id == null)
-                        System.out.println(Util.ERROR_USER_ID_TAG);
-                    
-                    if (dateOfbirth == null)
-                        System.out.println(Util.ERROR_USER_DATEOFBIRTH_TAG);
-
-                    if (email == null)
-                        System.out.println(Util.ERROR_USER_EMAIL_TAG);
-                    
-                    if (address == null)
-                        System.out.println(Util.ERROR_USER_ADDRESS_TAG);
-                    
-                    if (profile == null)
-                        System.out.println(Util.ERROR_USER_PROFILE_TAG);
-                    
                     if (userName == null)
                         System.out.println(Util.ERROR_USER_USERNAME_TAG);
                     
-                    if (password == null)
-                        System.out.println(Util.ERROR_USER_PASSWORD_TAG);
+                    pos++;
                 }
-                
-                pos++;
             }
         }
         catch(JDOMParseException e)
@@ -436,6 +448,7 @@ public class UsersXMLfile {
             System.out.println(Util.ERROR_XML_PROCESSING_FILE);
             e.printStackTrace();
         }
+        return(user);
     }
     
         /**
@@ -512,4 +525,78 @@ public class UsersXMLfile {
 
         return true;
     }    
+    
+    public static boolean removeUsersFromXML(String userToRemove) 
+    {//elimina a los usuarios del XML de productos
+        Document        doc;
+        Element         root,child;
+        List <Element>  rootChildrens;
+        String          nameUser;
+        boolean         found = false;
+        int             pos = 0;
+
+        SAXBuilder      builder = new SAXBuilder();
+
+        try
+        {
+            doc = builder.build(Util.USERS_XML_PATH);
+
+            root = doc.getRootElement();
+
+            rootChildrens = root.getChildren();
+            
+            while (pos < rootChildrens.size())
+            {
+                child = rootChildrens.get(pos);
+
+                nameUser = child.getAttributeValue(Util.USER_USERNAME_TAG);
+                    
+                if (nameUser != null && nameUser.equals(userToRemove))
+                {
+                    child.getParent().removeContent(child);
+                    
+                    found = true;
+                    
+                    try
+                    {
+                        Format format = Format.getPrettyFormat();
+
+                        /* Se genera un flujo de salida de datos XML */ 
+                        XMLOutputter out = new XMLOutputter(format);
+
+                        /* Se asocia el flujo de salida con el archivo donde se guardaran los datos */
+                        FileOutputStream file = new FileOutputStream(Util.USERS_XML_PATH);
+
+                        /* Se manda el documento generado hacia el archivo XML */
+                        out.output(doc,file);
+                        
+                        /* Se limpia el buffer ocupado por el objeto file y se manda a cerrar el archivo */
+                        file.flush();
+                        file.close();
+                    }
+                    catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                {
+                    if (userToRemove == null)
+                        System.out.println(Util.ERROR_USER_USERNAME_TAG);
+                }
+                
+                pos++;
+            }
+        } catch(JDOMParseException e){
+            System.out.println(Util.ERROR_XML_EMPTY_FILE);
+            e.printStackTrace();
+        } catch(JDOMException e){
+            System.out.println(Util.ERROR_XML_PROCESSING_FILE);
+            e.printStackTrace();
+        } catch(IOException e){
+            System.out.println(Util.ERROR_XML_PROCESSING_FILE);
+            e.printStackTrace();
+        }
+        return found;
+    }
 }

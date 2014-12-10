@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <products>
-  <product name="sdgfgfsd" provider="25" quantityMax="sgsdgdsg" quantityMin="45" price="789.0" image="zapatos" description="sdfdsfsfdf" category="C:\Users\Yetsenia\Pictures\images del proyecto\images2.jpg" />
-  <product name="sgfsgf" provider="25" quantityMax="gsdfgfgg" quantityMin="45" price="48.0" image="zapatos" description="dsfdf" category="C:\Users\Yetsenia\Pictures\images del proyecto\images2.jpg" />
+  <product name="Samsung s3" provider="5" quantityMax="samsung" quantityMin="20" price="242.0" image="telefonos" description="hsgdfuysvdayfva" category="C:\Users\Yetsenia\Pictures\images del proyecto\images2.jpg" />
+  <product name="telefono" provider="25" quantityMax="sgsgsd" quantityMin="55" price="465868.0" image="Seleccione:" description="dfgfgbdsrfsdfb" category="C:\Users\Yetsenia\Pictures\images del proyecto\images1.jpg" />
+  <product name="telefonos" provider="25" quantityMax="sddsff" quantityMin="78" price="497.0" image="ropa" description="svdsdfdff" category="C:\Users\Yetsenia\Pictures\images del proyecto\alergia-productos-de-limpieza.jpg" />
 </products>

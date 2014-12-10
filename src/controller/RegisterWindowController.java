@@ -1,6 +1,8 @@
 package controller;
 
 import com.toedter.calendar.JDateChooser;
+import static controller.SingInWindowController.CBprofile;
+import static controller.SingInWindowController.toLowerCaseUserName;
 import static java.lang.Double.isNaN;
 import static java.lang.Integer.parseInt;
 import java.text.DateFormat;
@@ -30,7 +32,7 @@ import model.UsersXMLfile;
  * version 1.0.0
  */
 public class RegisterWindowController {
-    
+ /*   
     public static JTextField name;
     public static JTextField lastName;
     public static JTextField id;
@@ -48,21 +50,7 @@ public class RegisterWindowController {
 
 
     
-       
-    /**
-     * Method to create the user
-     * @param name
-     * @param lastName
-     * @param id
-     * @param dateOfbirth
-     * @param email
-     * @param confirmPassword
-     * @param address
-     * @param profile
-     * @param userName
-     * @param confirmEmail
-     * @param password
-     */
+
     public static void initOutlets (JTextField name, JTextField lastName, JTextField id, JDateChooser dateOfbirth, String email, String confirmEmail, JTextField address,  JTextField userName, String profile, JPasswordField password, JPasswordField confirmPassword)
     {
         // Se obtiene en formato String la seleccion de la fecha dentro del JDateChooser
@@ -90,7 +78,7 @@ public class RegisterWindowController {
         
         // Se generaliza el userName a un string en minusculas
         toLowerCaseUserName = RegisterWindowController.userName.getText().toLowerCase();
-    }
+    }*/
     
     public static String ValidateProfile(String profile)
     {
@@ -100,7 +88,7 @@ public class RegisterWindowController {
     public static String ValidateEmail (JTextField Email, JComboBox Extends)
     {
         String CBExtends    = (String) Extends.getSelectedItem();
-        String concatena     = CBExtends.concat(Email.getText());
+        String concatena     = Email.getText().concat(CBExtends);
         
         return concatena;
     }
@@ -135,33 +123,14 @@ public class RegisterWindowController {
     /**
      * Method to save the created user in the data base 
      */
-    public static void saveUsersInXml ()
+    public static void saveUsersInXml (String Name,String LastName,String ID,String FechaObtenida,String Email,String ConfirmEmail,String Address,String UserName,String Password,String ConfirmPassword,String Profile)
     {
-        User user = new User(RegisterWindowController.name.getText(),
-                             RegisterWindowController.lastName.getText(),
-                             RegisterWindowController.id.getText(),
-                             RegisterWindowController.CDdateOfbirth,
-                             RegisterWindowController.confirmEmail,
-                             RegisterWindowController.toLowerCaseUserName,                            
-                             RegisterWindowController.CBprofile,
-                             RegisterWindowController.address.getText(),                           
-                             RegisterWindowController.confirmedPassword.getText());
+        User user = new User(Name,LastName,ID,FechaObtenida,Email,UserName,Profile,Address,Password);
         
         UsersXMLfile.saveUsersInXml(user);
     }
     
-    /**
-     * Method to clear all compoents in the view 
-     * @param name
-     * @param lastName
-     * @param id
-     * @param email
-     * @param password
-     * @param userName
-     * @param confirmEmail
-     * @param confirmPassword
-     * @param address
-     */
+    /*
     public static void clearAllOutlets(JTextField name, JTextField lastName, JTextField id, String email, String confirmEmail, JTextField address, JTextField userName, JPasswordField password, JPasswordField confirmPassword)
     {
         //se inicializan los atributos
@@ -172,6 +141,14 @@ public class RegisterWindowController {
         RegisterWindowController.userName.setText(null);
         RegisterWindowController.password.setText(null);
         RegisterWindowController.confirmedPassword.setText(null);
+    }*/
+    
+    public static boolean CleanUser(String nameUser)
+    {
+        boolean found;
+        
+        found = UsersXMLfile.removeUsersFromXML(nameUser);
+        return found;      
     }
 
 }

@@ -50,7 +50,7 @@ public class ProductsXMLfile {
             {
                 child = rootChildrens.get(pos);    
                 
-                // Se obtine el valor dentro de las etiquetas NameProduct, userType y password
+                // Se obtine el valor dentro de las etiquetas NameProduct
                 NameProduct        = child.getAttributeValue(Util.PRODUCT_NAMEPRODUCT_TAG);
                 
                 if(NameProduct != null && NameProduct.equals(NameProductConsult))
@@ -127,7 +127,7 @@ public class ProductsXMLfile {
     }
        
     public static boolean saveProductsInXML(Product product) 
-    {
+    {//guarda producto en el XML de productos
         Document doc;
         Element root, newChild;
 
@@ -249,8 +249,8 @@ public class ProductsXMLfile {
         return found;
     }
     
-    public static void removeProductsFromXML(String productToRemove) 
-    {
+    public static boolean removeProductsFromXML(String productToRemove) 
+    {//elimina los productos del XML de productos
         Document        doc;
         Element         root,child;
         List <Element>  rootChildrens;
@@ -320,6 +320,7 @@ public class ProductsXMLfile {
             System.out.println(Util.ERROR_XML_PROCESSING_FILE);
             e.printStackTrace();
         }
+        return found;
     }
         
 }

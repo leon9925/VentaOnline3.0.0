@@ -1,6 +1,6 @@
 package controller;
 
-import static controller.RegisterWindowController.toLowerCaseUserName;
+import static controller.SingInWindowController.toLowerCaseUserName;
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.Comparator;
@@ -16,6 +16,7 @@ import model.Product;
 import model.ProductComparator;
 import model.ProductList;
 import model.ProductsXMLfile;
+import model.User;
 import model.UsersXMLfile;
 
 /**
@@ -53,7 +54,28 @@ public class ManagerWindowController {
         return(ProductsXMLfile.readAllProductsFromXML(nameProduct));
     }
     
-  /*
+    public static boolean CleanProduct(String nameProduct)
+    {
+        boolean found;
+        
+        found = ProductsXMLfile.removeProductsFromXML(nameProduct);
+        return found;      
+    }
+    
+    public static boolean checkUserName (String userNameRegistration)
+    {
+        toLowerCaseUserName = userNameRegistration.toLowerCase();
+        
+        return(UsersXMLfile.readUsernameOfUserFromXml(toLowerCaseUserName));
+    }
+        
+    public static User ConsultUser(String nameUser) 
+    {
+        return(UsersXMLfile.readAllUsersFromXml(nameUser));
+    }
+
+    
+      /*
     public static void loadAllProductsInComboBox()
     {
         ProductList List = new  ProductList(); 

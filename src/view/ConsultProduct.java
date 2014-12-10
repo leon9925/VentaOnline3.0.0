@@ -95,6 +95,12 @@ public class ConsultProduct extends VentaOnline {
 
         jLImagen.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTFCategoryProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCategoryProductActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("Descripcion");
 
         jLQuantityMax.setText("Cantidad existencia");
@@ -226,6 +232,10 @@ public class ConsultProduct extends VentaOnline {
               
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTFCategoryProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCategoryProductActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFCategoryProductActionPerformed
 
     /**
      * @param args the command line arguments
