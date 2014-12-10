@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Iterator;
 import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import model.Product;
@@ -15,17 +16,6 @@ import model.ProductsXMLfile;
  */
 public class ManagerWindowController {
         
-    public static JTextField nameProduct;
-    public static JTextField provider;
-    public static JTextField quantityMax;
-    public static JTextField quantityMin;
-    public static JTextField price;
-    public static JTextField Image;
-    public static JTextArea  description;
-    public static JComboBox  category;
-    public static String     CBCategory;
-    public static String     TADescription;
-    private static JComboBox productList;
     
     /**
      *
@@ -38,40 +28,16 @@ public class ManagerWindowController {
      * @param description
      * @param category
      */
-    public static void initOutletsProductRegistration(JTextField nameProduct,JTextField provider,JTextField quantityMax,JTextField quantityMin,JTextField price,JTextField Image,
-                                                     JTextArea  description,JComboBox  category){
-        
-        ManagerWindowController.nameProduct = nameProduct;
-        ManagerWindowController.provider = provider;
-        ManagerWindowController.quantityMax = quantityMax;
-        ManagerWindowController.quantityMin = quantityMin;
-        ManagerWindowController.price = price;
-        ManagerWindowController.Image = Image;
-        ManagerWindowController.description = description;
-        ManagerWindowController.category = category;
-        
-        //Se asigna el valor del combobox a un String
-        CBCategory = (String) ManagerWindowController.category.getSelectedItem();
-        
-        //Se asigna el valor del textaerea a un String
-        TADescription = (String) ManagerWindowController.description.getSelectedText();
-    }
+    
 
-
-        public static void saveProductsInXml()
+    public static void saveProductsInXml(String nameProduct, String provider, String quantityMax, String quantityMin, String price, String Image, String TADescription, String CBCategory)
     {
-        Product product = new  Product(ManagerWindowController.nameProduct.getText(),
-                                    ManagerWindowController.provider.getText(),
-                                    ManagerWindowController.quantityMax.getText(),
-                                    ManagerWindowController.quantityMin.getText(),
-                                    ManagerWindowController.price.getText(),
-                                    ManagerWindowController.Image.getText(),
-                                    ManagerWindowController.TADescription,
-                                    ManagerWindowController.CBCategory);
+        Product product = new  Product(nameProduct, provider, quantityMax, quantityMin, price, Image,  TADescription, CBCategory);
         
         ProductsXMLfile.saveProductsInXML(product);
     } 
-        
+    
+  /*
     public static void loadAllProductsInComboBox()
     {
         ProductList List = new  ProductList(); 
@@ -96,4 +62,16 @@ public class ManagerWindowController {
     {
         ManagerWindowController.productList = productList;
     }     
+    
+    public static void clearAllOutletsProduct(JTextField nameProduct, JTextField provider, JTextField quantityMax, JTextField quantityMin, JTextField price, JTextField Image, JTextArea description)
+    {
+        //se inicializan los atributos
+        ManagerWindowController.nameProduct.setText(null);
+        ManagerWindowController.provider.setText(null);
+        ManagerWindowController.quantityMax.setText(null);
+        ManagerWindowController.quantityMin.setText(null);
+        ManagerWindowController.price.setText(null);
+        ManagerWindowController.Image.setText(null);
+        ManagerWindowController.description.setText(null);
+    }*/
 }

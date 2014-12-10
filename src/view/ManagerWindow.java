@@ -1,6 +1,11 @@
 package view;
 
+import controller.ManagerWindowController;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -82,7 +87,9 @@ public class ManagerWindow extends VentaOnline {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTADescription = new javax.swing.JTextArea();
         jLImg = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jBAddProduct = new javax.swing.JButton();
+        jBExamineImage = new javax.swing.JButton();
+        jTFPathImage = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -282,22 +289,20 @@ public class ManagerWindow extends VentaOnline {
             .addGroup(jLPUsersLayout.createSequentialGroup()
                 .addGroup(jLPUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTBTools3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jLPUsersLayout.createSequentialGroup()
-                        .addGroup(jLPUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLPUsersLayout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(jLMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jLPUsersLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jLTittleProfile3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTFNameUser3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 309, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLPUsersLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jLPUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBExit3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLMessage2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLMessage2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jLPUsersLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(jLPUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLPUsersLayout.createSequentialGroup()
+                                .addComponent(jLTittleProfile3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTFNameUser3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 315, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLPUsersLayout.setVerticalGroup(
@@ -305,11 +310,11 @@ public class ManagerWindow extends VentaOnline {
             .addGroup(jLPUsersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTBTools3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 368, Short.MAX_VALUE)
                 .addGroup(jLPUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLTittleProfile3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFNameUser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLMessage1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLMessage2)
@@ -350,14 +355,23 @@ public class ManagerWindow extends VentaOnline {
         jTADescription.setRows(5);
         jScrollPane1.setViewportView(jTADescription);
 
-        jLImg.setText("jLabel1");
+        jLImg.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setText("AGREGAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBAddProduct.setText("AGREGAR");
+        jBAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBAddProductActionPerformed(evt);
             }
         });
+
+        jBExamineImage.setText("...");
+        jBExamineImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBExamineImageActionPerformed(evt);
+            }
+        });
+
+        jTFPathImage.setEditable(false);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -366,7 +380,7 @@ public class ManagerWindow extends VentaOnline {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(jBAddProduct)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLAddImage)
@@ -378,16 +392,22 @@ public class ManagerWindow extends VentaOnline {
                             .addComponent(jLProvider)
                             .addComponent(jLNameProduct))
                         .addGap(18, 18, 18)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jLImg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTFNameProduct)
-                            .addComponent(jTFProvider)
-                            .addComponent(jTFQuantityMax)
-                            .addComponent(jTFQuantityMin)
-                            .addComponent(jTFPrice)
-                            .addComponent(jCBCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(423, Short.MAX_VALUE))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFNameProduct, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFProvider, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFQuantityMax, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFQuantityMin, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFPrice, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCBCategory, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jTFPathImage, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jBExamineImage)))))
+                .addGap(34, 34, 34)
+                .addComponent(jLImg, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,15 +437,19 @@ public class ManagerWindow extends VentaOnline {
                     .addComponent(jLCategory)
                     .addComponent(jCBCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLDescription)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLImg, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLAddImage))
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLDescription)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLAddImage)
+                            .addComponent(jBExamineImage)
+                            .addComponent(jTFPathImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
+                        .addComponent(jBAddProduct))
+                    .addComponent(jLImg, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jLayeredPane1.setLayer(jLNameProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -444,7 +468,9 @@ public class ManagerWindow extends VentaOnline {
         jLayeredPane1.setLayer(jCBCategory, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLImg, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jBAddProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jBExamineImage, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jTFPathImage, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTPProduct.addTab("     AGREGAR   ", jLayeredPane1);
 
@@ -498,42 +524,92 @@ public class ManagerWindow extends VentaOnline {
         this.dispose();
     }//GEN-LAST:event_jBExit2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //ACCION DEL BOTON AGREGAR
+    private void jBAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAddProductActionPerformed
+        //ACCION DEL BOTON AGREGAR PRODUCTO
         int cantidadMin = -1;
         int cantidadMax = -1;
-        int precio      = -1;
-        
-        try{
-            cantidadMax   = Integer.parseInt(jTFQuantityMax.getText());
-            cantidadMin   = Integer.parseInt(jTFQuantityMin.getText());
-            precio   = Integer.parseInt(jTFPrice.getText());
+        float precio      = -1;
+        String PathImage = "";
+         PathImage     = jTFPathImage.getText();
+            String Name = jTFNameProduct.getText();  
+            String Proveedor = jTFProvider.getText(); 
+            String Descripcion = jTADescription.getText(); 
+            String Categoria = jCBCategory.getSelectedItem().toString();
             
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this,"Las cantidades o precio no contienen el formato correcto.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);    
-            cantidadMax = -1; cantidadMin = -1; precio = -1;
-        }
-        
-        if(cantidadMax!=-1 && cantidadMin!=-1 && precio!=-1){
-            if(!"Seleccione:".equals(jCBCategory.getSelectedItem())){
-                if(!"".equals(jTFNameProduct.getText()) && !"".equals(jTFProvider.getText())){
-                    
+
+        if (!"".equals(jTFQuantityMax.getText()) && !"".equals(jTFQuantityMin.getText()) && !"".equals(jTFPrice.getText()) &&
+        !"".equals(PathImage) && !"".equals(Name) && !"".equals(Proveedor)  && 
+            !"".equals(Descripcion) && !"".equals(Categoria))
+        {
+            
+            try
+            {
+                cantidadMax   = Integer.parseInt(jTFQuantityMax.getText());
+                cantidadMin   = Integer.parseInt(jTFQuantityMin.getText());
+                precio        = Float.parseFloat(jTFPrice.getText());
+                
+                if((cantidadMax > 0) && (cantidadMin > 0) && (precio > 0))
+                {
+                    ManagerWindowController.saveProductsInXml(Name, Proveedor, Integer.toString(cantidadMax),  Integer.toString(cantidadMin),  Float.toString(precio), PathImage, Descripcion, Categoria);
+                    JOptionPane.showMessageDialog(this,"Registro exitoso");
+                    restoreFatherWindow();
+
+                    this.dispose();
                 }
                 else
-                    JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"Cantidades o precio invalido.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+
+
+            }
+            catch(NumberFormatException e)
+            {
+                JOptionPane.showMessageDialog(this,"Las cantidades o precio no contienen el formato correcto.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);    
+
+            }
+        }
+        else
+                JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                
+        
+    }//GEN-LAST:event_jBAddProductActionPerformed
+
+    private void jBExamineImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExamineImageActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Select Image");
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setFileFilter(new FileNameExtensionFilter("jpg, png, gif", "jpg", "png", "gif"));
+        int sel = chooser.showOpenDialog(this);
+        if (sel == JFileChooser.APPROVE_OPTION)
+        {
+            File f = chooser.getSelectedFile();
+            ImageIcon image=new ImageIcon(chooser.getSelectedFile().getPath());
+
+            if ((image.getIconHeight()>100) || (image.getIconWidth()>100))
+            {
+                ImageIcon imageScalada = new ImageIcon(image.getImage().getScaledInstance(295, 202, 600));
+            
+                jLImg.setIcon(imageScalada);
             }
             else
-                JOptionPane.showMessageDialog(this,"Debe seleccionar una categoria.\nIntentelo de nuevo.","Adventencia",JOptionPane.INFORMATION_MESSAGE);
+                jLImg.setIcon(image);
 
+            String pathImg = f.getAbsolutePath();
+            jTFPathImage.setText(pathImg);
         }
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBExamineImageActionPerformed
 
     public static void NameUser(String name, String lastName){
 
     }
-    
+    /*
+    private void initComponentsProduct()
+    {
+     
+        ManagerWindowController.initOutletsProductRegistration(jTFNameProduct, jTFProvider, jTFQuantityMax, jTFQuantityMin, jTFPrice, jTFPathImage, jTADescription, jCBCategory);
+        ManagerWindowController.saveProductsInXml();
+        ManagerWindowController.clearAllOutletsProduct(jTFNameProduct, jTFProvider, jTFQuantityMax, jTFQuantityMin, jTFPrice, jTFPathImage, jTADescription);
+    }
+    */
     /**
      * @param args the command line arguments
      */
@@ -571,16 +647,17 @@ public class ManagerWindow extends VentaOnline {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAddCategory;
+    private javax.swing.JButton jBAddProduct;
     private javax.swing.JButton jBAddUser;
     private javax.swing.JButton jBConsultCategory;
     private javax.swing.JButton jBConsultUser;
+    private javax.swing.JButton jBExamineImage;
     private javax.swing.JButton jBExit2;
     private javax.swing.JButton jBExit3;
     private javax.swing.JButton jBModifyCategory;
     private javax.swing.JButton jBModifyProfileUser;
     private javax.swing.JButton jBRemoveCategory;
     private javax.swing.JButton jBRemoveUser;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jCBCategory;
     private javax.swing.JLabel jLAddImage;
     private javax.swing.JLabel jLCategory;
@@ -612,6 +689,7 @@ public class ManagerWindow extends VentaOnline {
     private javax.swing.JTextField jTFNameProduct;
     private javax.swing.JTextField jTFNameUser2;
     private javax.swing.JTextField jTFNameUser3;
+    private javax.swing.JTextField jTFPathImage;
     private javax.swing.JTextField jTFPrice;
     private javax.swing.JTextField jTFProvider;
     private javax.swing.JTextField jTFQuantityMax;

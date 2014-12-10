@@ -131,7 +131,7 @@ public class ProductsXMLfile {
             newChild.setAttribute(Util.PRODUCT_QUANTITYMIN_TAG, product.getQuantityMin());
             newChild.setAttribute(Util.PRODUCT_PRICE_TAG, product.getPrice());
             newChild.setAttribute(Util.PRODUCT_IMAGE_TAG, product.getImg());
-            newChild.setAttribute(Util.PRODUCT_DESCRIPTION_TAG, product.getDescription());
+            Element setAttribute = newChild.setAttribute(Util.PRODUCT_DESCRIPTION_TAG, product.getDescription());
             newChild.setAttribute(Util.PRODUCT_CATEGORY_TAG, product.getCategory());
                         
                         

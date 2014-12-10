@@ -350,6 +350,7 @@ public class RegisterWindow extends VentaOnline {
         String Profile      = "Usuario";
         String Email        = RegisterWindowController.ValidateEmail(jTFEmail, jCBEmailExt1);
         String ConfirmEmail = RegisterWindowController.ValidateEmail(jTFConfirmEmail, jCBEmailExt2);
+        
         RegisterWindowController.initOutlets(jTFName, jTFLastName,  jTFID, jDCDateOfBirth, Email, ConfirmEmail, jTFAddress, jTFUserName, Profile, jPFPassword, jPFConfirmPassword);
         RegisterWindowController.saveUsersInXml();
         RegisterWindowController.clearAllOutlets(jTFName, jTFLastName,  jTFID, Email, ConfirmEmail, jTFAddress, jTFUserName, jPFPassword, jPFConfirmPassword);

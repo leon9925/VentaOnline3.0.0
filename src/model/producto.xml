@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-<root>
-    
-</root>
+<products>
+  <product name="sdgfgfsd" provider="25" quantityMax="sgsdgdsg" quantityMin="45" price="789.0" image="zapatos" description="sdfdsfsfdf" category="C:\Users\Yetsenia\Pictures\images del proyecto\images2.jpg" />
+  <product name="sgfsgf" provider="25" quantityMax="gsdfgfgg" quantityMin="45" price="48.0" image="zapatos" description="dsfdf" category="C:\Users\Yetsenia\Pictures\images del proyecto\images2.jpg" />
+</products>
