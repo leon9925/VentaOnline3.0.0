@@ -1,22 +1,11 @@
 package controller;
 
 import static controller.SingInWindowController.toLowerCaseUserName;
-import java.util.ArrayList;
-import static java.util.Collections.list;
-import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
 import javax.swing.JComboBox;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import model.Category;
 import model.Product;
-import model.ProductComparator;
 import model.CategoryList;
-import model.ProductList;
 import model.ProductsXMLfile;
 import model.User;
 import model.UsersXMLfile;
@@ -39,6 +28,8 @@ public class ManagerWindowController {
      * @param quantityMin
      * @param price
      * @param Image
+     * @param TADescription
+     * @param CBCategory
      */
     public static void saveProductsInXml(String nameProduct, String provider, String quantityMax, String quantityMin, String price, String Image, String TADescription, String CBCategory)
     {
@@ -113,7 +104,7 @@ public class ManagerWindowController {
         {
             Category actualCategory = (Category) iterator.next();
             
-            String format = actualCategory.getNameCategory(); //+ " - " + actualProduct.getRif();
+            String format = actualCategory.getNameCategory(); 
             
             categoryList.addItem(format);
         }

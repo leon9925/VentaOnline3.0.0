@@ -1,7 +1,4 @@
 package view;
-
-import java.io.File;
-import model.Util;
 /**
  * @author LeonardoSotillo
  * @author FernandoRainier

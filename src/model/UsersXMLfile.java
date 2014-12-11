@@ -390,7 +390,8 @@ public class UsersXMLfile {
                     if(name != null && lastName != null && id != null && dateOfbirth != null && address != null && email != null && profile != null && userName != null && password != null)
                     {
                         // Se crea un usuario
-                        user = new User(name, lastName, id, dateOfbirth, email, address, profile, userName, password);
+                        user = new User(name, lastName, id, dateOfbirth, email,userName,profile, address, password);
+                        
                         found = true;
                     }
                     else

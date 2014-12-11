@@ -5,4 +5,5 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <product>
+  <product name="camisa" provider="5" quantityMax="nike" quantityMin="45" price="178.0" image="zapato" description="sgdsgdsgd" category="C:\Users\Yetsenia\Pictures\images del proyecto\alergia-productos-de-limpieza.jpg" />
 </product>

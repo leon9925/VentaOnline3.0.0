@@ -1,14 +1,8 @@
 package controller;
 
-import com.toedter.calendar.JDateChooser;
 import static controller.SingInWindowController.CBprofile;
 import static controller.SingInWindowController.toLowerCaseUserName;
-import static java.lang.Double.isNaN;
-import static java.lang.Integer.parseInt;
-import java.text.DateFormat;
-import java.util.Date;
 import javax.swing.JComboBox;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import model.User;
 import model.UsersXMLfile;
@@ -74,6 +68,17 @@ public class RegisterWindowController {
     
     /**
      * Method to save the created user in the data base 
+     * @param Name
+     * @param LastName
+     * @param ID
+     * @param FechaObtenida
+     * @param Email
+     * @param ConfirmEmail
+     * @param Address
+     * @param UserName
+     * @param Password
+     * @param ConfirmPassword
+     * @param Profile
      */
     public static void saveUsersInXml (String Name,String LastName,String ID,String FechaObtenida,String Email,String ConfirmEmail,String Address,String UserName,String Password,String ConfirmPassword,String Profile)
     {

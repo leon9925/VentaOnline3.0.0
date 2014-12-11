@@ -2,8 +2,6 @@ package view;
 
 import controller.RegisterWindowController;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,10 +46,6 @@ public class RegisterWindow extends VentaOnline {
         jTFUserName = new javax.swing.JTextField();
         jPFPassword = new javax.swing.JPasswordField();
         jPFConfirmPassword = new javax.swing.JPasswordField();
-        jBver = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLFechaActual = new javax.swing.JLabel();
-        jTFfecha = new javax.swing.JTextField();
         jCBEmailExt1 = new javax.swing.JComboBox();
         jCBEmailExt2 = new javax.swing.JComboBox();
         jDCDateOfBirth = new com.toedter.calendar.JDateChooser();
@@ -120,17 +114,6 @@ public class RegisterWindow extends VentaOnline {
             }
         });
 
-        jBver.setText("VER");
-        jBver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBverActionPerformed(evt);
-            }
-        });
-
-        jLFechaActual.setBackground(new java.awt.Color(255, 255, 255));
-        jLFechaActual.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLFechaActual.setText("Fecha de registro");
-
         jCBEmailExt1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "@hotmail.com", "@yahoo.com", "@gmail.com" }));
 
         jCBEmailExt2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "@hotmail.com", "@yahoo.com", "@gmail.com" }));
@@ -146,10 +129,7 @@ public class RegisterWindow extends VentaOnline {
                 .addGap(30, 30, 30)
                 .addGroup(jPRegisterWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPRegisterWindowLayout.createSequentialGroup()
-                        .addComponent(jBver)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jBCancel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBAccept)
@@ -165,8 +145,7 @@ public class RegisterWindow extends VentaOnline {
                             .addComponent(jLAddress)
                             .addComponent(jLUserName)
                             .addComponent(jLPassword)
-                            .addComponent(jLConfirmarPassword)
-                            .addComponent(jLFechaActual))
+                            .addComponent(jLConfirmarPassword))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPRegisterWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTFName, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
@@ -178,7 +157,6 @@ public class RegisterWindow extends VentaOnline {
                             .addComponent(jTFUserName)
                             .addComponent(jPFConfirmPassword)
                             .addComponent(jPFPassword)
-                            .addComponent(jTFfecha)
                             .addComponent(jDCDateOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPRegisterWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,16 +211,10 @@ public class RegisterWindow extends VentaOnline {
                 .addGroup(jPRegisterWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLConfirmarPassword)
                     .addComponent(jPFConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(jPRegisterWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLFechaActual)
-                    .addComponent(jTFfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addGroup(jPRegisterWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBAccept)
-                    .addComponent(jBCancel)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBver))
+                    .addComponent(jBCancel))
                 .addGap(29, 29, 29))
         );
 
@@ -274,8 +246,7 @@ public class RegisterWindow extends VentaOnline {
         int    Cedula = -1;
         String Profile       = "Usuario";
         String FechaObtenida = "";
-        String Email         = RegisterWindowController.ValidateEmail(jTFEmail, jCBEmailExt1);
-        String ConfirmEmail  = RegisterWindowController.ValidateEmail(jTFConfirmEmail, jCBEmailExt2);
+
         String Name     = jTFName.getText();
         String LastName = jTFLastName.getText();
         String Address  = jTFAddress.getText();
@@ -283,54 +254,65 @@ public class RegisterWindow extends VentaOnline {
         String Password = jPFPassword.getText();
         String ConfirmPassword = jPFConfirmPassword.getText();
         String ID       = jTFID.getText();
+        String subcadena = "@";
+        String cadena = "ata@hotm.com";
+        if(cadena.matches(subcadena))
+            System.out.println("");
 
-        if (!"".equals(Name) && !"".equals(LastName) && !"".equals(ID) && !"".equals(Email) && 
-            !"".equals(ConfirmEmail) && !"".equals(UserName)  && !"".equals(Password) && 
+        cadena = jTFEmail.getText();
+                
+        if (!"".equals(Name) && !"".equals(LastName) && !"".equals(ID) && !"".equals(jTFEmail.getText()) && 
+            !"".equals(jTFConfirmEmail.getText()) && !"".equals(UserName)  && !"".equals(Password) && 
             !"".equals(ConfirmPassword) && !"".equals(Address))
         {
             try{
                 Cedula   = Integer.parseInt(jTFID.getText());
                 FechaObtenida = df.format(jDCDateOfBirth.getDate());
-                    
-                    if(Cedula != -1 && !"".equals(FechaObtenida))
-                    {
-                        if ( Email.equals(ConfirmEmail))
+                if(!subcadena.matches(cadena))
+                {
+                    String Email         = RegisterWindowController.ValidateEmail(jTFEmail, jCBEmailExt1);
+                    String ConfirmEmail  = RegisterWindowController.ValidateEmail(jTFConfirmEmail, jCBEmailExt2);
+                        if(Cedula != -1 && !"".equals(FechaObtenida))
                         {
-                            if (!(RegisterWindowController.checkUserName(jTFUserName.getText())))
+                            if ( Email.equals(ConfirmEmail))
                             {
-                                if (!(RegisterWindowController.checkEmailUser(jTFEmail.getText())))
-                                {    
-                                    if (!(RegisterWindowController.checkIDUser(jTFID.getText())))
-                                    {
-                                        if ((jPFPassword.getText().equals(jPFConfirmPassword.getText())) )
-                                        { 
+                                if (!(RegisterWindowController.checkUserName(jTFUserName.getText())))
+                                {
+                                    if (!(RegisterWindowController.checkEmailUser(jTFEmail.getText())))
+                                    {    
+                                        if (!(RegisterWindowController.checkIDUser(jTFID.getText())))
+                                        {
+                                            if ((jPFPassword.getText().equals(jPFConfirmPassword.getText())) )
+                                            { 
 
-                                                RegisterWindowController.saveUsersInXml(Name,LastName,ID,FechaObtenida,Email,ConfirmEmail,Address,UserName,Password,ConfirmPassword,Profile);
+                                                    RegisterWindowController.saveUsersInXml(Name,LastName,ID,FechaObtenida,Email,ConfirmEmail,Address,UserName,Password,ConfirmPassword,Profile);
 
-                                                JOptionPane.showMessageDialog(this,"Usuario registrado exitosamente.","",JOptionPane.INFORMATION_MESSAGE);
+                                                    JOptionPane.showMessageDialog(this,"Usuario registrado exitosamente.","",JOptionPane.INFORMATION_MESSAGE);
 
-                                                restoreFatherWindow();
+                                                    restoreFatherWindow();
 
-                                                this.dispose();
-
+                                                    this.dispose();
+                                            }
+                                            else
+                                                JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                                         }
                                         else
-                                            JOptionPane.showMessageDialog(this,"Las contraseñas no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                            JOptionPane.showMessageDialog(this,"Esta cedula de identidad ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                                     }
                                     else
-                                        JOptionPane.showMessageDialog(this,"Esta cedula de identidad ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                        JOptionPane.showMessageDialog(this,"Este correo electronico ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                                 }
                                 else
-                                    JOptionPane.showMessageDialog(this,"Este correo electronico ya existe.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                    JOptionPane.showMessageDialog(this,"Este nombre de usuario ya exite.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                             }
                             else
-                                JOptionPane.showMessageDialog(this,"Este nombre de usuario ya exite.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                                JOptionPane.showMessageDialog(this,"Los correos electronicos no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
                         }
                         else
-                            JOptionPane.showMessageDialog(this,"Los correos electronicos no coinciden.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-                    }
-                    else
-                                        JOptionPane.showMessageDialog(this,"Valores incorrectos.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(this,"Valores incorrectos.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+                }
+                else
+                    JOptionPane.showMessageDialog(this,"no aparece.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);    
             }
             catch(NumberFormatException e)
             {
@@ -347,20 +329,6 @@ public class RegisterWindow extends VentaOnline {
             JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jBAcceptActionPerformed
 
-    private void jBverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBverActionPerformed
-      
-        String FechaObtenida = df.format(jDCDateOfBirth.getDate());
-        jTextField1.setText(FechaObtenida);
-    }//GEN-LAST:event_jBverActionPerformed
-
-/*
-    private void initMyOwnComponents()
-    {
-        
-        RegisterWindowController.initOutlets(jTFName, jTFLastName,  jTFID, jDCDateOfBirth, Email, ConfirmEmail, jTFAddress, jTFUserName, Profile, jPFPassword, jPFConfirmPassword);
-        RegisterWindowController.saveUsersInXml();
-        RegisterWindowController.clearAllOutlets(jTFName, jTFLastName,  jTFID, Email, ConfirmEmail, jTFAddress, jTFUserName, jPFPassword, jPFConfirmPassword);
-    }*/
         
 
     public static void main(String args[]) {
@@ -375,7 +343,6 @@ public class RegisterWindow extends VentaOnline {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAccept;
     private javax.swing.JButton jBCancel;
-    private javax.swing.JButton jBver;
     private javax.swing.JComboBox jCBEmailExt1;
     private javax.swing.JComboBox jCBEmailExt2;
     private com.toedter.calendar.JDateChooser jDCDateOfBirth;
@@ -384,7 +351,6 @@ public class RegisterWindow extends VentaOnline {
     private javax.swing.JLabel jLConfirmarPassword;
     private javax.swing.JLabel jLDateOfBirth;
     private javax.swing.JLabel jLEmail;
-    private javax.swing.JLabel jLFechaActual;
     private javax.swing.JLabel jLID;
     private javax.swing.JLabel jLLastName;
     private javax.swing.JLabel jLName;
@@ -401,7 +367,5 @@ public class RegisterWindow extends VentaOnline {
     private javax.swing.JTextField jTFLastName;
     private javax.swing.JTextField jTFName;
     private javax.swing.JTextField jTFUserName;
-    private javax.swing.JTextField jTFfecha;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

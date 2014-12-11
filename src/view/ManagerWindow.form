@@ -91,69 +91,77 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jLNameUserConsult" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLNameUser1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLLastNameUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLIDUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLDateOfBirthConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLEmailUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLAddressUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLUserNameConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLProfileUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jBAddUser" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jTFProfileConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTFUserNameConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTFAddressUserConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTFEmailUserConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTFDateOfBirthConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTFIDUserConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTFLastNameConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTFUserConsult" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jBCleanUserConsult" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jBConsultUser" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jTFNameUserConsult" max="32767" attributes="0"/>
+                                          <Component id="jLNameUserConsult" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLNameUser1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLLastNameUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLIDUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLDateOfBirthConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLEmailUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLAddressUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLUserNameConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLProfileUserConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLPasswordConsult" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jBCleanUser" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLTittleProfile3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTFNameUser3" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="183" pref="183" max="-2" attributes="0"/>
-                              <Component id="jBExit3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jPFPasswordConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCBRol" max="32767" attributes="0"/>
+                                  <Component id="jTFProfileConsult" alignment="0" pref="208" max="32767" attributes="0"/>
+                                  <Component id="jTFUserNameConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFAddressUserConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFEmailUserConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFDateOfBirthConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFIDUserConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFLastNameConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFUserConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFNameUserConsult" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jBRol" min="-2" pref="123" max="-2" attributes="0"/>
+                                  <Component id="jBConsultUser" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLTittleProfile3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTFNameUser3" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jBExit3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="jBAddUser" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBCleanUserConsult" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBCleanUser" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLNameUser1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTFNameUserConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jBConsultUser" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLNameUserConsult" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTFUserConsult" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -193,14 +201,24 @@
                                   <Component id="jLProfileUserConsult" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTFProfileConsult" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="127" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="jBConsultUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLPasswordConsult" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPFPasswordConsult" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="jCBRol" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jBRol" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="43" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jBAddUser" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jBCleanUser" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jBCleanUserConsult" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jBAddUser" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -356,6 +374,9 @@
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/buscar.png"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="CONSULTAR"/>
                       </Properties>
                       <Events>
@@ -383,6 +404,47 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCleanUserConsultActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jBRol">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CAMBIAR ROL"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBRolActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="jCBRol">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="..."/>
+                            <StringItem index="1" value="Administrador"/>
+                            <StringItem index="2" value="Administrador Inventario"/>
+                            <StringItem index="3" value="Usuario"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Seleccione un rol de usuario"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLPasswordConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="CONTRASE&#xd1;A"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JPasswordField" name="jPFPasswordConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -424,6 +486,234 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
+                <Container class="javax.swing.JLayeredPane" name="jLayeredPane2">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="CONSULTAR">
+                        <Property name="tabTitle" type="java.lang.String" value="CONSULTAR"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLNameProduct1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLNameProductConsult" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLProviderProductConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLCantMaxConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLCantMinConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLPriceConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLCategoryConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLPathConsult" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLDescripConcult" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jCleanConsultProduct" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jBCleanProduct" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jTFNameProductConsult" pref="334" max="32767" attributes="0"/>
+                                  <Component id="jTFProviderConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFCantMaxConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFCantMinConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFPriceConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFCategoryConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFPathConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFDescripConsult" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTFNameConsult" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jBConsultProduct" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="66" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLNameProduct1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFNameProductConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jBConsultProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLNameProductConsult" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFNameConsult" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLProviderProductConsult" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFProviderConsult" min="-2" pref="20" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLCantMaxConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFCantMaxConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLCantMinConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFCantMinConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLPriceConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFPriceConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLCategoryConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFCategoryConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLPathConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFPathConsult" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLDescripConcult" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jTFDescripConsult" pref="111" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jCleanConsultProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jBCleanProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLNameProduct1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Nombre del producto a consultar"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFNameProductConsult">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jBConsultProduct">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/buscar.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CONSULTAR"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBConsultProductActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFNameConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLNameProductConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="NOMBRE"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLProviderProductConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="PROVEEDOR"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLCantMaxConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="CANTIDAD EXISTENTE"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLCantMinConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="CANTIDAD MINIMA"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLPriceConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="PRECIO"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLCategoryConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="CATEGORIA"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLPathConsult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="PATH IMAGEN"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLDescripConcult">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="DESCRIPCION"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFProviderConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFCantMaxConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFCantMinConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFPriceConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFCategoryConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFPathConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="jTFDescripConsult">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jCleanConsultProduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="LIMPIAR"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCleanConsultProductActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="jBCleanProduct">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCleanProductActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
                 <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -651,230 +941,6 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JLayeredPane" name="jLayeredPane2">
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="CONSULTAR">
-                        <Property name="tabTitle" type="java.lang.String" value="CONSULTAR"/>
-                      </JTabbedPaneConstraints>
-                    </Constraint>
-                  </Constraints>
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLNameProduct1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLNameProductConsult" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLProviderProductConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLCantMaxConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLCantMinConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLPriceConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLCategoryConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLPathConsult" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLDescripConcult" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jCleanConsultProduct" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="22" max="32767" attributes="0"/>
-                                      <Component id="jBCleanProduct" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jBConsultProduct" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jTFNameProductConsult" max="32767" attributes="0"/>
-                                  <Component id="jTFProviderConsult" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFCantMaxConsult" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFCantMinConsult" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFPriceConsult" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFCategoryConsult" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFPathConsult" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFDescripConsult" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTFNameConsult" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="223" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLNameProduct1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFNameProductConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLNameProductConsult" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFNameConsult" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLProviderProductConsult" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFProviderConsult" min="-2" pref="20" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLCantMaxConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFCantMaxConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLCantMinConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFCantMinConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLPriceConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFPriceConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLCategoryConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFCategoryConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLPathConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFPathConsult" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLDescripConcult" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jTFDescripConsult" pref="111" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jBConsultProduct" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCleanConsultProduct" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jBCleanProduct" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLNameProduct1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Nombre del producto a consultar"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFNameProductConsult">
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jBConsultProduct">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="CONSULTAR"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBConsultProductActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFNameConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLNameProductConsult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="NOMBRE"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLProviderProductConsult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="PROVEEDOR"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLCantMaxConsult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="CANTIDAD EXISTENTE"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLCantMinConsult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="CANTIDAD MINIMA"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLPriceConsult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="PRECIO"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLCategoryConsult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="CATEGORIA"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLPathConsult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="PATH IMAGEN"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLDescripConcult">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="DESCRIPCION"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFProviderConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFCantMaxConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFCantMinConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFPriceConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFCategoryConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFPathConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTFDescripConsult">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jCleanConsultProduct">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="LIMPIAR"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCleanConsultProductActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jBCleanProduct">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="ELIMINAR"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCleanProductActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -920,7 +986,7 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jBConsultCategory" min="-2" pref="29" max="-2" attributes="0"/>
-                              <EmptySpace pref="160" max="32767" attributes="0"/>
+                              <EmptySpace pref="159" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>

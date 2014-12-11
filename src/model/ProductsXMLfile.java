@@ -2,9 +2,7 @@ package model;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedSet;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;

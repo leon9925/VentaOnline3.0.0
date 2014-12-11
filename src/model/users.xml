@@ -6,5 +6,8 @@ and open the template in the editor.
 -->
 <users>
   <user name="Fernando" lastName="Obregon" id="21718395" dateOfBirth="07/12/2014" email="fernanrainier@hotmail.com" address="el paraiso" profile="Administrador" userName="fercho" password="fercho" />
-  <user name="Jose" lastName="rechuti" id="17897264" dateOfBirth="08/12/2014" email="jose@hotmail.com" address="hadsfcbfhva" profile="Usuario" userName="jose" password="jose" />
+  <user name="jose" lastName="jose" id="46446464" dateOfBirth="11/12/2014" email="jose@hotmail.com" address="paraiso" profile="Usuario" userName="jose" password="jose" />
+  <user name="leonardo" lastName="sotillo" id="544848" dateOfBirth="12/12/2014" email="leo@hotmail.com" address="florida" profile="Administrador Inventario" userName="leo" password="leo" />
+  <user name="ata" lastName="silva" id="5464" dateOfBirth="07/12/2014" email="ata@hotmail.com" address="DSGDGD" profile="Usuario" userName="ATA" password="ATA" />
+  <user name="jose" lastName="silva" id="217562316" dateOfBirth="05/12/2014" email="josesilva@hotmail.com" address="ucab" profile="Administrador Inventario" userName="josesilva" password="jose" />
 </users>

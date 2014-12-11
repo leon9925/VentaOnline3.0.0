@@ -3,14 +3,11 @@ package view;
 import controller.ManagerWindowController;
 import controller.RegisterWindowController;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import model.Category;
 import model.Product;
 import model.User;
 
@@ -28,14 +25,6 @@ public class ManagerWindow extends VentaOnline {
     public ManagerWindow() {
         initComponents();
         initRegistrationComboBox();
-        
-        //SE CREAN LAS COLUMNAS DE NUESTRA TABLA...
-        model.addColumn("Cant Existencia");
-        model.addColumn("Nombre");
-        model.addColumn("Categoria");
-        model.addColumn("Proveedor");
-        model.addColumn("Precio");
-        //this.jTTableProduct.setModel(model);
     }
 
     /**
@@ -76,30 +65,13 @@ public class ManagerWindow extends VentaOnline {
         jBConsultUser = new javax.swing.JButton();
         jBCleanUser = new javax.swing.JButton();
         jBCleanUserConsult = new javax.swing.JButton();
+        jBRol = new javax.swing.JButton();
+        jCBRol = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLPasswordConsult = new javax.swing.JLabel();
+        jPFPasswordConsult = new javax.swing.JPasswordField();
         jLPProduct = new javax.swing.JLayeredPane();
         jTPProduct = new javax.swing.JTabbedPane();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jLNameProduct = new javax.swing.JLabel();
-        jLProvider = new javax.swing.JLabel();
-        jLQuantityMax = new javax.swing.JLabel();
-        jLQuantityMin = new javax.swing.JLabel();
-        jLPrice = new javax.swing.JLabel();
-        jLCategory = new javax.swing.JLabel();
-        jLDescription = new javax.swing.JLabel();
-        jLAddImage = new javax.swing.JLabel();
-        jTFNameProduct = new javax.swing.JTextField();
-        jTFProvider = new javax.swing.JTextField();
-        jTFQuantityMax = new javax.swing.JTextField();
-        jTFQuantityMin = new javax.swing.JTextField();
-        jTFPrice = new javax.swing.JTextField();
-        jCBCategory = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTADescription = new javax.swing.JTextArea();
-        jLImg = new javax.swing.JLabel();
-        jBAddProduct = new javax.swing.JButton();
-        jBExamineImage = new javax.swing.JButton();
-        jTFPathImage = new javax.swing.JTextField();
-        jBCleanAdd = new javax.swing.JButton();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jLNameProduct1 = new javax.swing.JLabel();
         jTFNameProductConsult = new javax.swing.JTextField();
@@ -122,6 +94,28 @@ public class ManagerWindow extends VentaOnline {
         jTFDescripConsult = new javax.swing.JTextField();
         jCleanConsultProduct = new javax.swing.JButton();
         jBCleanProduct = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLNameProduct = new javax.swing.JLabel();
+        jLProvider = new javax.swing.JLabel();
+        jLQuantityMax = new javax.swing.JLabel();
+        jLQuantityMin = new javax.swing.JLabel();
+        jLPrice = new javax.swing.JLabel();
+        jLCategory = new javax.swing.JLabel();
+        jLDescription = new javax.swing.JLabel();
+        jLAddImage = new javax.swing.JLabel();
+        jTFNameProduct = new javax.swing.JTextField();
+        jTFProvider = new javax.swing.JTextField();
+        jTFQuantityMax = new javax.swing.JTextField();
+        jTFQuantityMin = new javax.swing.JTextField();
+        jTFPrice = new javax.swing.JTextField();
+        jCBCategory = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTADescription = new javax.swing.JTextArea();
+        jLImg = new javax.swing.JLabel();
+        jBAddProduct = new javax.swing.JButton();
+        jBExamineImage = new javax.swing.JButton();
+        jTFPathImage = new javax.swing.JTextField();
+        jBCleanAdd = new javax.swing.JButton();
         jLPCategory = new javax.swing.JLayeredPane();
         jLTittleProfile2 = new javax.swing.JLabel();
         jTFNameUser2 = new javax.swing.JTextField();
@@ -203,6 +197,7 @@ public class ManagerWindow extends VentaOnline {
         jTFProfileConsult.setEditable(false);
 
         jBConsultUser.setBackground(new java.awt.Color(255, 255, 255));
+        jBConsultUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/buscar.png"))); // NOI18N
         jBConsultUser.setText("CONSULTAR");
         jBConsultUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,6 +221,23 @@ public class ManagerWindow extends VentaOnline {
             }
         });
 
+        jBRol.setBackground(new java.awt.Color(255, 255, 255));
+        jBRol.setText("CAMBIAR ROL");
+        jBRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBRolActionPerformed(evt);
+            }
+        });
+
+        jCBRol.setBackground(new java.awt.Color(255, 255, 255));
+        jCBRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "...", "Administrador", "Administrador Inventario", "Usuario" }));
+
+        jLabel1.setText("Seleccione un rol de usuario");
+
+        jLPasswordConsult.setText("CONTRASEÑA");
+
+        jPFPasswordConsult.setEditable(false);
+
         javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
         jLayeredPane3.setLayout(jLayeredPane3Layout);
         jLayeredPane3Layout.setHorizontalGroup(
@@ -233,57 +245,66 @@ public class ManagerWindow extends VentaOnline {
             .addGroup(jLayeredPane3Layout.createSequentialGroup()
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLNameUserConsult)
-                                    .addComponent(jLNameUser1)
-                                    .addComponent(jLLastNameUserConsult)
-                                    .addComponent(jLIDUserConsult)
-                                    .addComponent(jLDateOfBirthConsult)
-                                    .addComponent(jLEmailUserConsult)
-                                    .addComponent(jLAddressUserConsult)
-                                    .addComponent(jLUserNameConsult)
-                                    .addComponent(jLProfileUserConsult)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jBAddUser)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(49, 49, 49)
                         .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTFProfileConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFUserNameConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFAddressUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFEmailUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFDateOfBirthConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFIDUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFLastNameConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane3Layout.createSequentialGroup()
-                                .addComponent(jBCleanUserConsult)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBConsultUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(9, 9, 9))
-                            .addComponent(jTFNameUserConsult))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBCleanUser))
-                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                            .addComponent(jLNameUserConsult)
+                            .addComponent(jLNameUser1)
+                            .addComponent(jLLastNameUserConsult)
+                            .addComponent(jLIDUserConsult)
+                            .addComponent(jLDateOfBirthConsult)
+                            .addComponent(jLEmailUserConsult)
+                            .addComponent(jLAddressUserConsult)
+                            .addComponent(jLUserNameConsult)
+                            .addComponent(jLProfileUserConsult)
+                            .addComponent(jLPasswordConsult))
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLTittleProfile3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFNameUser3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(183, 183, 183)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPFPasswordConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCBRol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTFProfileConsult, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                    .addComponent(jTFUserNameConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFAddressUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFEmailUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFDateOfBirthConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFIDUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFLastNameConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFUserConsult, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTFNameUserConsult))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBRol, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBConsultUser))
+                .addGap(220, 220, 220))
+            .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLTittleProfile3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTFNameUser3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBExit3)
-                .addContainerGap())
+                .addGap(131, 131, 131))
+            .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(jBAddUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBCleanUserConsult)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBCleanUser)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jLayeredPane3Layout.setVerticalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(43, 43, 43)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNameUser1)
-                    .addComponent(jTFNameUserConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(jTFNameUserConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBConsultUser, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNameUserConsult)
                     .addComponent(jTFUserConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -315,13 +336,21 @@ public class ManagerWindow extends VentaOnline {
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLProfileUserConsult)
                     .addComponent(jTFProfileConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jBConsultUser)
+                    .addComponent(jLPasswordConsult)
+                    .addComponent(jPFPasswordConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBRol))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBAddUser, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jBCleanUser)
-                        .addComponent(jBCleanUserConsult))
-                    .addComponent(jBAddUser, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(jBCleanUserConsult)))
                 .addGap(18, 18, 18)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLTittleProfile3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -354,6 +383,11 @@ public class ManagerWindow extends VentaOnline {
         jLayeredPane3.setLayer(jBConsultUser, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jBCleanUser, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jBCleanUserConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jBRol, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jCBRol, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLPasswordConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jPFPasswordConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTPUsers.addTab("GESTIONAR USUARIO", jLayeredPane3);
 
@@ -372,6 +406,170 @@ public class ManagerWindow extends VentaOnline {
         jTPManagerWindow.addTab("     USUARIO    ", jLPUsers);
 
         jLPProduct.setBackground(new java.awt.Color(255, 0, 0));
+
+        jLNameProduct1.setText("Nombre del producto a consultar");
+
+        jBConsultProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/buscar.png"))); // NOI18N
+        jBConsultProduct.setText("CONSULTAR");
+        jBConsultProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultProductActionPerformed(evt);
+            }
+        });
+
+        jTFNameConsult.setEditable(false);
+
+        jLNameProductConsult.setText("NOMBRE");
+
+        jLProviderProductConsult.setText("PROVEEDOR");
+
+        jLCantMaxConsult.setText("CANTIDAD EXISTENTE");
+
+        jLCantMinConsult.setText("CANTIDAD MINIMA");
+
+        jLPriceConsult.setText("PRECIO");
+
+        jLCategoryConsult.setText("CATEGORIA");
+
+        jLPathConsult.setText("PATH IMAGEN");
+
+        jLDescripConcult.setText("DESCRIPCION");
+
+        jTFProviderConsult.setEditable(false);
+
+        jTFCantMaxConsult.setEditable(false);
+
+        jTFCantMinConsult.setEditable(false);
+
+        jTFPriceConsult.setEditable(false);
+
+        jTFCategoryConsult.setEditable(false);
+
+        jTFPathConsult.setEditable(false);
+
+        jTFDescripConsult.setEditable(false);
+
+        jCleanConsultProduct.setText("LIMPIAR");
+        jCleanConsultProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCleanConsultProductActionPerformed(evt);
+            }
+        });
+
+        jBCleanProduct.setText("ELIMINAR");
+        jBCleanProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCleanProductActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLNameProduct1)
+                    .addComponent(jLNameProductConsult)
+                    .addComponent(jLProviderProductConsult)
+                    .addComponent(jLCantMaxConsult)
+                    .addComponent(jLCantMinConsult)
+                    .addComponent(jLPriceConsult)
+                    .addComponent(jLCategoryConsult)
+                    .addComponent(jLPathConsult)
+                    .addComponent(jLDescripConcult))
+                .addGap(28, 28, 28)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jCleanConsultProduct)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBCleanProduct)
+                        .addGap(59, 59, 59))
+                    .addComponent(jTFNameProductConsult, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                    .addComponent(jTFProviderConsult)
+                    .addComponent(jTFCantMaxConsult)
+                    .addComponent(jTFCantMinConsult)
+                    .addComponent(jTFPriceConsult)
+                    .addComponent(jTFCategoryConsult)
+                    .addComponent(jTFPathConsult)
+                    .addComponent(jTFDescripConsult)
+                    .addComponent(jTFNameConsult))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBConsultProduct)
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLNameProduct1)
+                    .addComponent(jTFNameProductConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBConsultProduct))
+                .addGap(56, 56, 56)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLNameProductConsult)
+                    .addComponent(jTFNameConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLProviderProductConsult)
+                    .addComponent(jTFProviderConsult, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCantMaxConsult)
+                    .addComponent(jTFCantMaxConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCantMinConsult)
+                    .addComponent(jTFCantMinConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLPriceConsult)
+                    .addComponent(jTFPriceConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLCategoryConsult)
+                    .addComponent(jTFCategoryConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLPathConsult)
+                    .addComponent(jTFPathConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jLDescripConcult)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTFDescripConsult, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCleanConsultProduct)
+                    .addComponent(jBCleanProduct))
+                .addContainerGap())
+        );
+        jLayeredPane2.setLayer(jLNameProduct1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFNameProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jBConsultProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFNameConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLNameProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLProviderProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLCantMaxConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLCantMinConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLPriceConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLCategoryConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLPathConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLDescripConcult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFProviderConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFCantMaxConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFCantMinConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFPriceConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFCategoryConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFPathConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFDescripConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jCleanConsultProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jBCleanProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTPProduct.addTab("CONSULTAR", jLayeredPane2);
 
         jLNameProduct.setText("Nombre");
 
@@ -527,168 +725,6 @@ public class ManagerWindow extends VentaOnline {
 
         jTPProduct.addTab("     AGREGAR   ", jLayeredPane1);
 
-        jLNameProduct1.setText("Nombre del producto a consultar");
-
-        jBConsultProduct.setText("CONSULTAR");
-        jBConsultProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBConsultProductActionPerformed(evt);
-            }
-        });
-
-        jTFNameConsult.setEditable(false);
-
-        jLNameProductConsult.setText("NOMBRE");
-
-        jLProviderProductConsult.setText("PROVEEDOR");
-
-        jLCantMaxConsult.setText("CANTIDAD EXISTENTE");
-
-        jLCantMinConsult.setText("CANTIDAD MINIMA");
-
-        jLPriceConsult.setText("PRECIO");
-
-        jLCategoryConsult.setText("CATEGORIA");
-
-        jLPathConsult.setText("PATH IMAGEN");
-
-        jLDescripConcult.setText("DESCRIPCION");
-
-        jTFProviderConsult.setEditable(false);
-
-        jTFCantMaxConsult.setEditable(false);
-
-        jTFCantMinConsult.setEditable(false);
-
-        jTFPriceConsult.setEditable(false);
-
-        jTFCategoryConsult.setEditable(false);
-
-        jTFPathConsult.setEditable(false);
-
-        jTFDescripConsult.setEditable(false);
-
-        jCleanConsultProduct.setText("LIMPIAR");
-        jCleanConsultProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCleanConsultProductActionPerformed(evt);
-            }
-        });
-
-        jBCleanProduct.setText("ELIMINAR");
-        jBCleanProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCleanProductActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
-        jLayeredPane2.setLayout(jLayeredPane2Layout);
-        jLayeredPane2Layout.setHorizontalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLNameProduct1)
-                    .addComponent(jLNameProductConsult)
-                    .addComponent(jLProviderProductConsult)
-                    .addComponent(jLCantMaxConsult)
-                    .addComponent(jLCantMinConsult)
-                    .addComponent(jLPriceConsult)
-                    .addComponent(jLCategoryConsult)
-                    .addComponent(jLPathConsult)
-                    .addComponent(jLDescripConcult))
-                .addGap(28, 28, 28)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addComponent(jCleanConsultProduct)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addComponent(jBCleanProduct)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBConsultProduct))
-                    .addComponent(jTFNameProductConsult)
-                    .addComponent(jTFProviderConsult)
-                    .addComponent(jTFCantMaxConsult)
-                    .addComponent(jTFCantMinConsult)
-                    .addComponent(jTFPriceConsult)
-                    .addComponent(jTFCategoryConsult)
-                    .addComponent(jTFPathConsult)
-                    .addComponent(jTFDescripConsult)
-                    .addComponent(jTFNameConsult))
-                .addContainerGap(223, Short.MAX_VALUE))
-        );
-        jLayeredPane2Layout.setVerticalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLNameProduct1)
-                    .addComponent(jTFNameProductConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLNameProductConsult)
-                    .addComponent(jTFNameConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLProviderProductConsult)
-                    .addComponent(jTFProviderConsult, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCantMaxConsult)
-                    .addComponent(jTFCantMaxConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCantMinConsult)
-                    .addComponent(jTFCantMinConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLPriceConsult)
-                    .addComponent(jTFPriceConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCategoryConsult)
-                    .addComponent(jTFCategoryConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLPathConsult)
-                    .addComponent(jTFPathConsult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addComponent(jLDescripConcult)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTFDescripConsult, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBConsultProduct)
-                    .addComponent(jCleanConsultProduct)
-                    .addComponent(jBCleanProduct))
-                .addContainerGap())
-        );
-        jLayeredPane2.setLayer(jLNameProduct1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFNameProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jBConsultProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFNameConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLNameProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLProviderProductConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLCantMaxConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLCantMinConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLPriceConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLCategoryConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLPathConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jLDescripConcult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFProviderConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFCantMaxConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFCantMinConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFPriceConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFCategoryConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFPathConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jTFDescripConsult, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jCleanConsultProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(jBCleanProduct, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jTPProduct.addTab("CONSULTAR", jLayeredPane2);
-
         javax.swing.GroupLayout jLPProductLayout = new javax.swing.GroupLayout(jLPProduct);
         jLPProduct.setLayout(jLPProductLayout);
         jLPProductLayout.setHorizontalGroup(
@@ -783,7 +819,7 @@ public class ManagerWindow extends VentaOnline {
                             .addComponent(jTFNameCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBConsultCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLPCategoryLayout.setVerticalGroup(
@@ -836,20 +872,6 @@ public class ManagerWindow extends VentaOnline {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAddUserActionPerformed
-        
-        RegisterWindow registerWindow = new RegisterWindow();
-        registerWindow.setVisible(true);
-
-        registerWindow.setFatherWindow(this, true);  
-    }//GEN-LAST:event_jBAddUserActionPerformed
-
-    private void jBExit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExit3ActionPerformed
-        restoreFatherWindow();
-
-        this.dispose();
-    }//GEN-LAST:event_jBExit3ActionPerformed
 
     private void jBExit2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExit2ActionPerformed
         restoreFatherWindow();
@@ -1011,82 +1033,6 @@ public class ManagerWindow extends VentaOnline {
         JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jBAddProductActionPerformed
 
-    private void jBConsultUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultUserActionPerformed
-        // ACCION DEL BOTON CONSULTAR USUARIO
-        String consultarUser = jTFNameUserConsult.getText();
-        String nameUser,lastName,id,dateOfBirth,email,address,userName,profile;
-        
-        if(!"".equals(consultarUser))
-        {  
-            if(ManagerWindowController.checkUserName(consultarUser))
-            {
-
-                User lUser = ManagerWindowController.ConsultUser(consultarUser);
-
-                nameUser = lUser.getName();
-                lastName = lUser.getLastName();
-                id       = lUser.getId();
-                dateOfBirth = lUser.getDateOfbirth();
-                email    = lUser.getEmail();
-                address  = lUser.getAddress();
-                userName = lUser.getUserName();
-                profile  = lUser.getProfile();
-
-                jTFUserConsult.setText(nameUser);
-                jTFLastNameConsult.setText(lastName);
-                jTFIDUserConsult.setText(id);
-                jTFDateOfBirthConsult.setText(dateOfBirth);
-                jTFEmailUserConsult.setText(email);
-                jTFAddressUserConsult.setText(address);
-                jTFUserNameConsult.setText(userName);
-                jTFProfileConsult.setText(profile);
-            }
-            else
-                JOptionPane.showMessageDialog(this,"El producto que esta buscando no se encuentra registrado.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-        }
-        else
-            JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-    }//GEN-LAST:event_jBConsultUserActionPerformed
-
-    private void jBCleanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanUserActionPerformed
-        // ACCION DEL BOTON PARA ELIMINAR USUARIO
-        String eliminar = jTFNameUserConsult.getText();
-
-        if(!"".equals(eliminar))
-        { 
-            if(RegisterWindowController.checkUserName(eliminar))
-            {
-                if(RegisterWindowController.CleanUser(eliminar))
-                { 
-                    JOptionPane.showMessageDialog(this,"Eliminacion exitosa");
-                    jTFUserConsult.setText(null);
-                    jTFLastNameConsult.setText(null);
-                    jTFIDUserConsult.setText(null);
-                    jTFDateOfBirthConsult.setText(null);
-                    jTFEmailUserConsult.setText(null);
-                    jTFAddressUserConsult.setText(null);
-                    jTFUserNameConsult.setText(null);
-                    jTFProfileConsult.setText(null);
-                }
-            }
-            else
-                JOptionPane.showMessageDialog(this,"El usuario que esta buscando no se encuentra registrado.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-        }
-        else
-            JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
-    }//GEN-LAST:event_jBCleanUserActionPerformed
-
-    private void jBCleanUserConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanUserConsultActionPerformed
-                jTFUserConsult.setText(null);
-                jTFLastNameConsult.setText(null);
-                jTFIDUserConsult.setText(null);
-                jTFDateOfBirthConsult.setText(null);
-                jTFEmailUserConsult.setText(null);
-                jTFAddressUserConsult.setText(null);
-                jTFUserNameConsult.setText(null);
-                jTFProfileConsult.setText(null);
-    }//GEN-LAST:event_jBCleanUserConsultActionPerformed
-
     private void jBClearCategoryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClearCategoryListActionPerformed
         // ELIMINAR CATEGORIA DE LA LISTA
         String categoria = jTFNameCategory.getText(); 
@@ -1152,21 +1098,141 @@ public class ManagerWindow extends VentaOnline {
         jTFNameCategory.setText(null);
     }//GEN-LAST:event_jBCleanCategoryActionPerformed
 
+    private void jBCleanUserConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanUserConsultActionPerformed
+        jTFUserConsult.setText(null);
+        jTFLastNameConsult.setText(null);
+        jTFIDUserConsult.setText(null);
+        jTFDateOfBirthConsult.setText(null);
+        jTFEmailUserConsult.setText(null);
+        jTFAddressUserConsult.setText(null);
+        jTFUserNameConsult.setText(null);
+        jTFProfileConsult.setText(null);
+    }//GEN-LAST:event_jBCleanUserConsultActionPerformed
+
+    private void jBCleanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanUserActionPerformed
+        // ACCION DEL BOTON PARA ELIMINAR USUARIO
+        String eliminar = jTFNameUserConsult.getText();
+
+        if(!"".equals(eliminar))
+        {
+            if(RegisterWindowController.checkUserName(eliminar))
+            {
+                if(RegisterWindowController.CleanUser(eliminar))
+                {
+                    JOptionPane.showMessageDialog(this,"Eliminacion exitosa");
+                    jTFUserConsult.setText(null);
+                    jTFLastNameConsult.setText(null);
+                    jTFIDUserConsult.setText(null);
+                    jTFDateOfBirthConsult.setText(null);
+                    jTFEmailUserConsult.setText(null);
+                    jTFAddressUserConsult.setText(null);
+                    jTFUserNameConsult.setText(null);
+                    jTFProfileConsult.setText(null);
+                    jPFPasswordConsult.setText(null);
+                }
+            }
+            else
+            JOptionPane.showMessageDialog(this,"El usuario que esta buscando no se encuentra registrado.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jBCleanUserActionPerformed
+
+    private void jBConsultUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultUserActionPerformed
+        // ACCION DEL BOTON CONSULTAR USUARIO
+        String consultarUser = jTFNameUserConsult.getText();
+        String nameUser,lastName,id,dateOfBirth,email,address,userName,profile,password;
+
+        if(!"".equals(consultarUser))
+        {
+            if(ManagerWindowController.checkUserName(consultarUser))
+            {
+
+                User lUser = ManagerWindowController.ConsultUser(consultarUser);
+
+                nameUser = lUser.getName();
+                lastName = lUser.getLastName();
+                id       = lUser.getId();
+                dateOfBirth = lUser.getDateOfbirth();
+                email    = lUser.getEmail();
+                address  = lUser.getAddress();
+                userName = lUser.getUserName();
+                profile  = lUser.getProfile();
+                password = lUser.getPassword();
+                
+                jTFUserConsult.setText(nameUser);
+                jTFLastNameConsult.setText(lastName);
+                jTFIDUserConsult.setText(id);
+                jTFDateOfBirthConsult.setText(dateOfBirth);
+                jTFEmailUserConsult.setText(email);
+                jTFAddressUserConsult.setText(address);
+                jTFUserNameConsult.setText(userName);
+                jTFProfileConsult.setText(profile);
+                jPFPasswordConsult.setText(password);
+            }
+            else
+            JOptionPane.showMessageDialog(this,"El usuario que esta buscando no se encuentra registrado.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(this,"Existen campos vacios.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jBConsultUserActionPerformed
+
+    private void jBAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAddUserActionPerformed
+
+        RegisterWindow registerWindow = new RegisterWindow();
+        registerWindow.setVisible(true);
+
+        registerWindow.setFatherWindow(this, true);
+    }//GEN-LAST:event_jBAddUserActionPerformed
+
+    private void jBExit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExit3ActionPerformed
+        restoreFatherWindow();
+
+        this.dispose();
+    }//GEN-LAST:event_jBExit3ActionPerformed
+
+    private void jBRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBRolActionPerformed
+        //CAMBIAR EL PERFIL 
+        
+        if(!"...".equals(jCBRol.getSelectedItem().toString()))
+        {
+            String rol = jCBRol.getSelectedItem().toString();
+            String eliminar = jTFNameUserConsult.getText();
+            
+            String name         =   jTFUserConsult.getText();
+            String lastName = jTFLastNameConsult.getText();
+            String id =            jTFIDUserConsult.getText();
+            String fecha =            jTFDateOfBirthConsult.getText();
+            String Email =            jTFEmailUserConsult.getText();
+            String Address =            jTFAddressUserConsult.getText();
+            String userName   =         jTFUserNameConsult.getText();
+            String password = jPFPasswordConsult.getText();
+
+            jTFUserConsult.setText(null);
+            jTFLastNameConsult.setText(null);
+            jTFIDUserConsult.setText(null);
+            jTFDateOfBirthConsult.setText(null);
+            jTFEmailUserConsult.setText(null);
+            jTFAddressUserConsult.setText(null);
+            jTFUserNameConsult.setText(null);
+            jTFProfileConsult.setText(null);
+            jPFPasswordConsult.setText(null);
+        
+               RegisterWindowController.CleanUser(eliminar);
+               RegisterWindowController.saveUsersInXml(name,lastName,id,fecha,Email,Email,Address,userName,password,password,rol);          
+       
+        }
+        else
+            JOptionPane.showMessageDialog(this,"Debe seleccionar algun perfil de usuario.\nIntentelo de nuevo.","Adventencia",JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_jBRolActionPerformed
+
     // Metodo para inicializar los componentes de la pestaña de Registro
     private void initRegistrationComboBox()
     {
         ManagerWindowController.initComboBoxCategory(jCBCategory);
         ManagerWindowController.loadAllCategoryInComboBox();
     }
-    /*
-    private void initComponentsProduct()
-    {
-     
-        ManagerWindowController.initOutletsProductRegistration(jTFNameProduct, jTFProvider, jTFQuantityMax, jTFQuantityMin, jTFPrice, jTFPathImage, jTADescription, jCBCategory);
-        ManagerWindowController.saveProductsInXml();
-        ManagerWindowController.clearAllOutletsProduct(jTFNameProduct, jTFProvider, jTFQuantityMax, jTFQuantityMin, jTFPrice, jTFPathImage, jTADescription);
-    }
-    */
+
     /**
      * @param args the command line arguments
      */
@@ -1218,7 +1284,9 @@ public class ManagerWindow extends VentaOnline {
     private javax.swing.JButton jBExamineImage;
     private javax.swing.JButton jBExit2;
     private javax.swing.JButton jBExit3;
+    private javax.swing.JButton jBRol;
     private javax.swing.JComboBox jCBCategory;
+    private javax.swing.JComboBox jCBRol;
     private javax.swing.JButton jCleanConsultProduct;
     private javax.swing.JLabel jLAddImage;
     private javax.swing.JLabel jLAddressUserConsult;
@@ -1242,6 +1310,7 @@ public class ManagerWindow extends VentaOnline {
     private javax.swing.JLayeredPane jLPCategory;
     private javax.swing.JLayeredPane jLPProduct;
     private javax.swing.JLayeredPane jLPUsers;
+    private javax.swing.JLabel jLPasswordConsult;
     private javax.swing.JLabel jLPathConsult;
     private javax.swing.JLabel jLPrice;
     private javax.swing.JLabel jLPriceConsult;
@@ -1253,9 +1322,11 @@ public class ManagerWindow extends VentaOnline {
     private javax.swing.JLabel jLTittleProfile2;
     private javax.swing.JLabel jLTittleProfile3;
     private javax.swing.JLabel jLUserNameConsult;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JPasswordField jPFPasswordConsult;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTADescription;
     private javax.swing.JTextField jTFAddressUserConsult;
