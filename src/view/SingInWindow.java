@@ -35,7 +35,7 @@ public class SingInWindow extends VentaOnline {
 
         jLTittleSingInWindow.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLTittleSingInWindow.setForeground(new java.awt.Color(51, 51, 255));
-        jLTittleSingInWindow.setText("INGRESAR");
+        jLTittleSingInWindow.setText("INGRESAR AL SISTEMA");
 
         jLUserName.setBackground(new java.awt.Color(255, 255, 255));
         jLUserName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -69,7 +69,7 @@ public class SingInWindow extends VentaOnline {
             jPSingInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPSingInLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLTittleSingInWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLTittleSingInWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPSingInLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
